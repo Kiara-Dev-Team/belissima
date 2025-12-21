@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belissima - CEO Business Intelligence Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>📊 Belissima CEO Dashboard</h1>
+            <div class="header-info">
+                <span class="date" id="currentDate"></span>
+                <span class="refresh-indicator">🔄 Live Data</span>
+            </div>
+        </header>
+
+        <div class="kpi-cards">
+            <div class="kpi-card revenue">
+                <div class="kpi-icon">💰</div>
+                <div class="kpi-content">
+                    <h3>Total Revenue</h3>
+                    <p class="kpi-value">$2.4M</p>
+                    <span class="kpi-change positive">+12.5%</span>
+                </div>
+            </div>
+            <div class="kpi-card profit">
+                <div class="kpi-icon">📈</div>
+                <div class="kpi-content">
+                    <h3>Net Profit</h3>
+                    <p class="kpi-value">$840K</p>
+                    <span class="kpi-change positive">+8.3%</span>
+                </div>
+            </div>
+            <div class="kpi-card customers">
+                <div class="kpi-icon">👥</div>
+                <div class="kpi-content">
+                    <h3>Active Customers</h3>
+                    <p class="kpi-value">12,450</p>
+                    <span class="kpi-change positive">+15.2%</span>
+                </div>
+            </div>
+            <div class="kpi-card growth">
+                <div class="kpi-icon">🚀</div>
+                <div class="kpi-content">
+                    <h3>Growth Rate</h3>
+                    <p class="kpi-value">23.4%</p>
+                    <span class="kpi-change positive">+3.1%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container large">
+                <h2>Revenue vs Expenses Trend</h2>
+                <canvas id="revenueExpensesChart"></canvas>
+            </div>
+            
+            <div class="chart-container medium">
+                <h2>Quarterly Performance</h2>
+                <canvas id="quarterlyChart"></canvas>
+            </div>
+
+            <div class="chart-container medium">
+                <h2>Revenue Breakdown</h2>
+                <canvas id="revenueBreakdownChart"></canvas>
+            </div>
+
+            <div class="chart-container medium">
+                <h2>Customer Acquisition</h2>
+                <canvas id="customerChart"></canvas>
+            </div>
+
+            <div class="chart-container medium">
+                <h2>Market Share</h2>
+                <canvas id="marketShareChart"></canvas>
+            </div>
+
+            <div class="chart-container large">
+                <h2>Key Metrics Overview</h2>
+                <canvas id="metricsRadarChart"></canvas>
+            </div>
+        </div>
+
+        <footer class="dashboard-footer">
+            <p>Powered by Chart.js • Open Source BI Dashboard</p>
+        </footer>
+    </div>
+
+    <script src="lib/chart.umd.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
