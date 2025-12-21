@@ -55,7 +55,7 @@ If you need to run the dashboard without internet access:
    curl -o chart.js https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js
    ```
 
-2. Update `index.html` line 148:
+2. Update `index.html` line 161:
    ```html
    <!-- Change from: -->
    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
