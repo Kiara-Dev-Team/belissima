@@ -182,6 +182,53 @@ canvas {
     font-size: 0.9rem;
 }
 
+/* Alternative Visualization Section */
+.alternative-viz-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+}
+
+.viz-library-group {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.library-title {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* D3 specific styles */
+#d3TreeMap, #d3ForceGraph, #d3Chord {
+    width: 100%;
+    height: 400px;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+/* Plotly specific styles */
+#plotlyScatter, #plotlySunburst, #plotlyBox {
+    width: 100%;
+    min-height: 400px;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .chart-container.large {
