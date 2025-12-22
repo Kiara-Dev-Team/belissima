@@ -4,6 +4,35 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Financial Authority Palette */
+    --color-navy-dark: #1B2D4D;
+    --color-slate-gray: #4A5568;
+    --color-teal-accent: #2D7B8C;
+    --color-burgundy-warning: #8B3A3A;
+    --color-cream-bg: #F5F4F0;
+
+    /* Neutral Professional Palette */
+    --color-charcoal: #2C2C2C;
+    --color-medium-gray: #6B7280;
+    --color-light-gray: #D1D5DB;
+    --color-forest-accent: #1F5233;
+    --color-off-white: #F9F7F4;
+
+    /* Dual-Purpose Palette */
+    --color-deep-teal: #0D5C63;
+    --color-deep-plum: #6A3E37;
+    --color-light-sage: #E8F1F0;
+    --color-light-mauve: #F4EBE8;
+
+    /* Single-Hue Progression Palette */
+    --color-blue-100: #003A66;
+    --color-blue-80: #1A5C8C;
+    --color-blue-60: #4A7CB4;
+    --color-blue-40: #8AA8D1;
+    --color-blue-20: #D4E1F0;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
