@@ -4,7 +4,9 @@
   "description": "Beautiful CEO BI Dashboard with KPI visualizations",
   "main": "index.html",
   "scripts": {
-    "dev": "npx http-server -p 8080 -o",
+    "postinstall": "node scripts/copy-libs.js",
+    "build": "node scripts/copy-libs.js",
+    "dev": "npm run build && npx http-server -p 8080 -o",
     "start": "npx http-server -p 8080"
   },
   "keywords": [
@@ -17,7 +19,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "chart.js": "^4.4.1"
+    "chart.js": "^4.4.1",
+    "plotly.js-dist": "^2.27.1",
+    "d3": "^7.8.5"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
