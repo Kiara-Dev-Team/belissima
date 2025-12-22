@@ -84,11 +84,219 @@
         </div>
 
         <footer class="dashboard-footer">
-            <p>Powered by Chart.js • Open Source BI Dashboard</p>
+            <p>Powered by Chart.js, Plotly.js & D3.js • Open Source BI Dashboard</p>
         </footer>
+
+        <!-- SaaS Metrics Section Divider -->
+        <div class="section-divider"></div>
+
+        <!-- Chart.js SaaS Metrics Section -->
+        <div class="library-section">
+            <div class="library-section-header chartjs">
+                <h2>
+                    <span class="library-badge">Chart.js</span>
+                    SaaS Metrics Dashboard
+                </h2>
+                <p>Comprehensive B2B SaaS KPIs with clean, responsive visualizations</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card metric-highlight">
+                    <h3>Annual Recurring Revenue (ARR)</h3>
+                    <p class="metric-description">Clean trend visualization showing ARR growth over time</p>
+                    <canvas id="chartjs-arr"></canvas>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Net Revenue Retention (NRR)</h3>
+                    <p class="metric-description">Gauge showing percentage at a glance with target comparison</p>
+                    <canvas id="chartjs-nrr"></canvas>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Customer Acquisition Cost (CAC)</h3>
+                    <p class="metric-description">Monthly comparison of acquisition costs</p>
+                    <canvas id="chartjs-cac"></canvas>
+                </div>
+
+                <div class="metric-card">
+                    <h3>CAC Payback Period</h3>
+                    <p class="metric-description">Track payback trends with target benchmark</p>
+                    <canvas id="chartjs-cac-payback"></canvas>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Customer Lifetime Value (LTV)</h3>
+                    <p class="metric-description">LTV:CAC ratio comparison by segment</p>
+                    <canvas id="chartjs-ltv"></canvas>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Churn Rate</h3>
+                    <p class="metric-description">Monthly churn trend analysis</p>
+                    <canvas id="chartjs-churn"></canvas>
+                </div>
+
+                <div class="metric-card metric-container-large metric-highlight">
+                    <h3>Expansion ARR Contribution</h3>
+                    <p class="metric-description">New ARR vs expansion ARR breakdown</p>
+                    <canvas id="chartjs-expansion"></canvas>
+                </div>
+
+                <div class="metric-card">
+                    <h3>ARR per Employee (ARR/FTE)</h3>
+                    <p class="metric-description">Efficiency improvement over time</p>
+                    <canvas id="chartjs-arr-fte"></canvas>
+                </div>
+
+                <div class="metric-card metric-highlight">
+                    <h3>Rule of 40</h3>
+                    <p class="metric-description">Growth% + profit margin combination</p>
+                    <canvas id="chartjs-rule40"></canvas>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Gross Revenue Retention (GRR)</h3>
+                    <p class="metric-description">Month-over-month GRR progress</p>
+                    <canvas id="chartjs-grr"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plotly.js Advanced Analytics Section -->
+        <div class="library-section">
+            <div class="library-section-header plotly">
+                <h2>
+                    <span class="library-badge plotly">Plotly.js</span>
+                    Advanced Analytics
+                </h2>
+                <p>Interactive visualizations with zoom, pan, and advanced data exploration</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card metric-container-large metric-highlight">
+                    <h3>NRR Gauge + Historical Trend</h3>
+                    <p class="metric-description">Interactive gauge with range slider for historical tracking</p>
+                    <div id="plotly-nrr-combo" class="plotly-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large">
+                    <h3>CAC vs NRR Correlation</h3>
+                    <p class="metric-description">Bar chart with scatter overlay showing correlation analysis</p>
+                    <div id="plotly-cac-correlation" class="plotly-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large metric-highlight">
+                    <h3>LTV 3D Scatter Analysis</h3>
+                    <p class="metric-description">3D visualization correlating LTV with segment and cohort</p>
+                    <div id="plotly-ltv-3d" class="plotly-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large">
+                    <h3>Churn Analysis Combo</h3>
+                    <p class="metric-description">Combined view of churn rate and customer count</p>
+                    <div id="plotly-churn-combo" class="plotly-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large metric-highlight">
+                    <h3>Customer Expansion Flow</h3>
+                    <p class="metric-description">Sankey diagram showing customer flow through expansion stages</p>
+                    <div id="plotly-expansion-sankey" class="plotly-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large">
+                    <h3>GRR with Confidence Intervals</h3>
+                    <p class="metric-description">Acceptable range with 88% benchmark indicator</p>
+                    <div id="plotly-grr-confidence" class="plotly-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D3.js Custom Visualizations Section -->
+        <div class="library-section">
+            <div class="library-section-header d3">
+                <h2>
+                    <span class="library-badge d3">D3.js</span>
+                    Custom Executive Visualizations
+                </h2>
+                <p>Highly customized visualizations with unique styling and interactions</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card metric-container-large metric-highlight">
+                    <h3>ARR Area Chart</h3>
+                    <p class="metric-description">Custom gradient fill emphasizing growth trajectory</p>
+                    <div id="d3-arr-area" class="d3-container"></div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>NRR Custom Gauge</h3>
+                    <p class="metric-description">Visual thresholds with 110% target line</p>
+                    <div id="d3-nrr-gauge" class="d3-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large">
+                    <h3>CAC with Trend Line</h3>
+                    <p class="metric-description">Custom annotations for efficiency targets</p>
+                    <div id="d3-cac-trend" class="d3-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large metric-highlight">
+                    <h3>Churn Waterfall</h3>
+                    <p class="metric-description">Customer loss flow by segment</p>
+                    <div id="d3-churn-waterfall" class="d3-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large">
+                    <h3>LTV Bubble Chart</h3>
+                    <p class="metric-description">Size=LTV, color=segment for visual comparison</p>
+                    <div id="d3-ltv-bubble" class="d3-container"></div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Expansion Sunburst</h3>
+                    <p class="metric-description">Drill down from total ARR to expansion details</p>
+                    <div id="d3-expansion-sunburst" class="d3-container"></div>
+                </div>
+
+                <div class="metric-card metric-container-large metric-highlight">
+                    <h3>ARR/FTE Slope Chart</h3>
+                    <p class="metric-description">Efficiency comparison across departments</p>
+                    <div id="d3-arr-fte-slope" class="d3-container"></div>
+                </div>
+
+                <div class="metric-card">
+                    <h3>Rule of 40 Score</h3>
+                    <p class="metric-description">Unique health score representation</p>
+                    <div id="d3-rule40-score" class="d3-container"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="lib/chart.umd.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.1.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="dashboard.js"></script>
+    <script src="lib/chartjs-saas-metrics.js"></script>
+    <script src="lib/plotly-saas-analytics.js"></script>
+    <script src="lib/d3-saas-visualizations.js"></script>
+    <script>
+        // Initialize all SaaS metrics after DOM is fully loaded
+        window.addEventListener('DOMContentLoaded', function() {
+            // Add a small delay to ensure all libraries are loaded
+            setTimeout(function() {
+                if (typeof initChartJSSaaSMetrics === 'function') {
+                    initChartJSSaaSMetrics();
+                }
+                if (typeof initPlotlySaaSAnalytics === 'function') {
+                    initPlotlySaaSAnalytics();
+                }
+                if (typeof initD3SaaSVisualizations === 'function') {
+                    initD3SaaSVisualizations();
+                }
+            }, 100);
+        });
+    </script>
 </body>
 </html>
