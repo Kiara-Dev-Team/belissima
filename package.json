@@ -4,7 +4,9 @@
   "description": "Beautiful CEO BI Dashboard with KPI visualizations",
   "main": "index.html",
   "scripts": {
-    "dev": "npx http-server -p 8080 -o",
+    "postinstall": "node scripts/copy-libs.js",
+    "build": "node scripts/copy-libs.js",
+    "dev": "npm run build && npx http-server -p 8080 -o",
     "start": "npx http-server -p 8080"
   },
   "keywords": [
