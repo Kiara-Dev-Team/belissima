@@ -12,11 +12,14 @@ const singleHueColors = WSJColors.singleHueProgression;
 const dualPurposeColors = WSJColors.dualPurpose;
 const neutralColors = WSJColors.neutralProfessional;
 
-// Helper function to convert HEX to RGBA
+// Helper function to convert HEX to RGBA (uses hexToRgb from wsj-palettes.js)
 function hexToRgba(hex, alpha = 1) {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
+    // hexToRgb is defined in lib/wsj-palettes.js
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!result) return hex;
+    const r = parseInt(result[1], 16);
+    const g = parseInt(result[2], 16);
+    const b = parseInt(result[3], 16);
     return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
