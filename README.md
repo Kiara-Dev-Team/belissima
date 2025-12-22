@@ -207,6 +207,8 @@ Edit the respective library files:
 
 Each function accepts a canvas/div ID and contains inline data that can be modified.
 
+**Note on Colors**: The color values are intentionally hardcoded in the JavaScript files rather than using CSS variables because Chart.js, Plotly.js, and D3.js require JavaScript color strings in their data configurations. All color values are documented in `WSJ-COLOR-PALETTES.md` for easy reference and consistency.
+
 ### Change Styling
 Edit `styles.css` to customize:
 - Color schemes
