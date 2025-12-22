@@ -174,7 +174,21 @@
         }
 
         function copyToClipboard(text, swatchElement) {
-            // Create a temporary input element
+            // Use modern Clipboard API with fallback
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyFeedback(swatchElement);
+                }).catch(err => {
+                    console.error('Failed to copy using Clipboard API:', err);
+                    fallbackCopy(text, swatchElement);
+                });
+            } else {
+                fallbackCopy(text, swatchElement);
+            }
+        }
+
+        function fallbackCopy(text, swatchElement) {
+            // Fallback for older browsers
             const tempInput = document.createElement('input');
             tempInput.value = text;
             document.body.appendChild(tempInput);
@@ -182,21 +196,22 @@
             
             try {
                 document.execCommand('copy');
-                
-                // Show visual feedback
-                const indicator = swatchElement.querySelector('.copy-indicator');
-                indicator.classList.add('show');
-                
-                setTimeout(() => {
-                    indicator.classList.remove('show');
-                }, 1500);
-                
+                showCopyFeedback(swatchElement);
                 console.log(`Copied ${text} to clipboard`);
             } catch (err) {
                 console.error('Failed to copy:', err);
             }
             
             document.body.removeChild(tempInput);
+        }
+
+        function showCopyFeedback(swatchElement) {
+            const indicator = swatchElement.querySelector('.copy-indicator');
+            indicator.classList.add('show');
+            
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 1500);
         }
 
         console.log('✅ WSJ Color System page loaded successfully!');

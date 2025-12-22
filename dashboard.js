@@ -12,6 +12,14 @@ const singleHueColors = WSJColors.singleHueProgression;
 const dualPurposeColors = WSJColors.dualPurpose;
 const neutralColors = WSJColors.neutralProfessional;
 
+// Helper function to convert HEX to RGBA
+function hexToRgba(hex, alpha = 1) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
 // Common chart options
 const commonOptions = {
     responsive: true,
@@ -40,7 +48,7 @@ new Chart(revenueExpensesCtx, {
             label: 'Revenue',
             data: [185000, 195000, 210000, 225000, 240000, 235000, 255000, 270000, 265000, 280000, 295000, 310000],
             borderColor: financialAuthorityColors[2], // Teal Accent
-            backgroundColor: financialAuthorityColors[2] + '20',
+            backgroundColor: hexToRgba(financialAuthorityColors[2], 0.12),
             borderWidth: 3,
             tension: 0.4,
             fill: true
@@ -48,7 +56,7 @@ new Chart(revenueExpensesCtx, {
             label: 'Expenses',
             data: [135000, 142000, 148000, 155000, 162000, 158000, 165000, 172000, 168000, 175000, 182000, 188000],
             borderColor: financialAuthorityColors[3], // Burgundy
-            backgroundColor: financialAuthorityColors[3] + '20',
+            backgroundColor: hexToRgba(financialAuthorityColors[3], 0.12),
             borderWidth: 3,
             tension: 0.4,
             fill: true
@@ -78,13 +86,13 @@ new Chart(quarterlyCtx, {
         datasets: [{
             label: 'Revenue',
             data: [590000, 700000, 790000, 885000, 950000],
-            backgroundColor: financialAuthorityColors[0] + 'CC', // Navy Dark with opacity
+            backgroundColor: hexToRgba(financialAuthorityColors[0], 0.8), // Navy Dark with opacity
             borderColor: financialAuthorityColors[0],
             borderWidth: 2
         }, {
             label: 'Profit',
             data: [165000, 198000, 237000, 267000, 295000],
-            backgroundColor: financialAuthorityColors[1] + 'CC', // Slate Gray with opacity
+            backgroundColor: hexToRgba(financialAuthorityColors[1], 0.8), // Slate Gray with opacity
             borderColor: financialAuthorityColors[1],
             borderWidth: 2
         }]
@@ -113,11 +121,11 @@ new Chart(revenueBreakdownCtx, {
         datasets: [{
             data: [45, 25, 18, 10, 2],
             backgroundColor: [
-                singleHueColors[0] + 'CC',
-                singleHueColors[1] + 'CC',
-                singleHueColors[2] + 'CC',
-                singleHueColors[3] + 'CC',
-                singleHueColors[4] + 'CC'
+                hexToRgba(singleHueColors[0], 0.8),
+                hexToRgba(singleHueColors[1], 0.8),
+                hexToRgba(singleHueColors[2], 0.8),
+                hexToRgba(singleHueColors[3], 0.8),
+                hexToRgba(singleHueColors[4], 0.8)
             ],
             borderColor: singleHueColors,
             borderWidth: 2
@@ -144,7 +152,7 @@ new Chart(customerCtx, {
             label: 'New Customers',
             data: [450, 520, 580, 620, 690, 750, 810, 880, 920, 980, 1050, 1120],
             borderColor: financialAuthorityColors[2], // Teal Accent
-            backgroundColor: financialAuthorityColors[2] + '33',
+            backgroundColor: hexToRgba(financialAuthorityColors[2], 0.2),
             borderWidth: 3,
             tension: 0.4,
             fill: true,
@@ -171,11 +179,11 @@ new Chart(marketShareCtx, {
         datasets: [{
             data: [32, 24, 18, 15, 11],
             backgroundColor: [
-                dualPurposeColors[0] + 'CC', // Deep Teal for us
-                neutralColors[0] + 'CC',      // Charcoal
-                neutralColors[1] + 'CC',      // Medium Gray
-                neutralColors[2] + 'CC',      // Light Gray
-                dualPurposeColors[1] + 'CC'   // Deep Plum
+                hexToRgba(dualPurposeColors[0], 0.8), // Deep Teal for us
+                hexToRgba(neutralColors[0], 0.8),      // Charcoal
+                hexToRgba(neutralColors[1], 0.8),      // Medium Gray
+                hexToRgba(neutralColors[2], 0.8),      // Light Gray
+                hexToRgba(dualPurposeColors[1], 0.8)   // Deep Plum
             ],
             borderColor: [
                 dualPurposeColors[0],
@@ -208,7 +216,7 @@ new Chart(metricsRadarCtx, {
             label: 'Current Year',
             data: [85, 92, 78, 88, 82, 90],
             borderColor: dualPurposeColors[0],
-            backgroundColor: dualPurposeColors[0] + '33',
+            backgroundColor: hexToRgba(dualPurposeColors[0], 0.2),
             borderWidth: 2,
             pointBackgroundColor: dualPurposeColors[0],
             pointBorderColor: '#fff',
@@ -218,7 +226,7 @@ new Chart(metricsRadarCtx, {
             label: 'Previous Year',
             data: [75, 85, 72, 80, 78, 82],
             borderColor: dualPurposeColors[1],
-            backgroundColor: dualPurposeColors[1] + '33',
+            backgroundColor: hexToRgba(dualPurposeColors[1], 0.2),
             borderWidth: 2,
             pointBackgroundColor: dualPurposeColors[1],
             pointBorderColor: '#fff',
