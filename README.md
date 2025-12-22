@@ -1,6 +1,6 @@
 # 📊 Belissima - CEO Business Intelligence Dashboard
 
-![Belissima CEO Dashboard](./assets/belissima-ceo-dashboard.png)
+![Belissima CEO Dashboard](./image)
 
 Beautiful KPI dashboard built with open-source technologies like Chart.js for stunning data visualizations.
 
