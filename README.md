@@ -15,7 +15,7 @@ Beautiful KPI dashboard built with open-source technologies like Chart.js for st
 - **Modern UI**: Gradient backgrounds, smooth animations, and card-based layout
 - **Live Data Indicators**: Visual feedback for data updates
 
-CleanShot 2025-12-23 at 02.29.06@2x.png
+![Screenshot](./images/Screenshot_2025-12-23_at_2_29_26.jpg)
 
 ## 🚀 Getting Started
 
