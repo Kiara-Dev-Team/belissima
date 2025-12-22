@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belissima - B2B SaaS CEO Dashboard</title>
+    <link rel="stylesheet" href="saas-styles.css">
+    <!-- Chart.js -->
+    <script src="lib/chart.umd.js"></script>
+    <!-- Plotly.js -->
+    <script src="lib/plotly.min.js"></script>
+    <!-- D3.js -->
+    <script src="lib/d3.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>📊 B2B SaaS CEO Dashboard</h1>
+            <div class="header-info">
+                <span class="date" id="currentDate"></span>
+                <span class="refresh-indicator">🔄 Live Data</span>
+            </div>
+        </header>
+
+        <!-- KPI Summary Cards -->
+        <div class="kpi-cards">
+            <div class="kpi-card arr">
+                <div class="kpi-icon">💰</div>
+                <div class="kpi-content">
+                    <h3>ARR</h3>
+                    <p class="kpi-value">$12.4M</p>
+                    <span class="kpi-change positive">+28.5%</span>
+                </div>
+            </div>
+            <div class="kpi-card nrr">
+                <div class="kpi-icon">📈</div>
+                <div class="kpi-content">
+                    <h3>Net Revenue Retention</h3>
+                    <p class="kpi-value">115%</p>
+                    <span class="kpi-change positive">+5%</span>
+                </div>
+            </div>
+            <div class="kpi-card cac">
+                <div class="kpi-icon">💸</div>
+                <div class="kpi-content">
+                    <h3>CAC</h3>
+                    <p class="kpi-value">$850</p>
+                    <span class="kpi-change positive">-12.3%</span>
+                </div>
+            </div>
+            <div class="kpi-card ltv">
+                <div class="kpi-icon">🎯</div>
+                <div class="kpi-content">
+                    <h3>LTV:CAC Ratio</h3>
+                    <p class="kpi-value">4.2x</p>
+                    <span class="kpi-change positive">+0.5x</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Chart.js Components -->
+        <section class="library-section">
+            <h2 class="section-title">Chart.js Visualizations</h2>
+            <div class="charts-grid">
+                <div class="chart-container large">
+                    <h3>ARR Trend (Annual Recurring Revenue)</h3>
+                    <canvas id="arrTrendChart"></canvas>
+                </div>
+                
+                <div class="chart-container medium">
+                    <h3>NRR Gauge (Net Revenue Retention)</h3>
+                    <canvas id="nrrGaugeChart"></canvas>
+                </div>
+
+                <div class="chart-container medium">
+                    <h3>CAC by Month (Customer Acquisition Cost)</h3>
+                    <canvas id="cacMonthChart"></canvas>
+                </div>
+
+                <div class="chart-container medium">
+                    <h3>CAC Payback Period</h3>
+                    <canvas id="cacPaybackChart"></canvas>
+                </div>
+
+                <div class="chart-container medium">
+                    <h3>LTV:CAC Ratio</h3>
+                    <canvas id="ltvCacChart"></canvas>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>Churn Rate Trend</h3>
+                    <canvas id="churnRateChart"></canvas>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>Expansion ARR (Stacked)</h3>
+                    <canvas id="expansionArrChart"></canvas>
+                </div>
+
+                <div class="chart-container medium">
+                    <h3>ARR per Employee</h3>
+                    <canvas id="arrPerEmployeeChart"></canvas>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>Rule of 40 (Combo Chart)</h3>
+                    <canvas id="ruleOf40Chart"></canvas>
+                </div>
+
+                <div class="chart-container medium">
+                    <h3>GRR Trend (Gross Revenue Retention)</h3>
+                    <canvas id="grrTrendChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Plotly.js Components -->
+        <section class="library-section">
+            <h2 class="section-title">Plotly.js Interactive Visualizations</h2>
+            <div class="charts-grid">
+                <div class="chart-container large">
+                    <h3>NRR with Gauge + Line Combo</h3>
+                    <div id="nrrComboPlot"></div>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>CAC vs NRR Correlation</h3>
+                    <div id="cacNrrCorrelation"></div>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>LTV Segment Analysis (3D Scatter)</h3>
+                    <div id="ltvSegmentPlot"></div>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>Churn Context with New Customers</h3>
+                    <div id="churnContextPlot"></div>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>Expansion Pipeline (Sankey)</h3>
+                    <div id="expansionSankeyPlot"></div>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>GRR with Confidence Intervals</h3>
+                    <div id="grrConfidencePlot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: D3.js Components -->
+        <section class="library-section">
+            <h2 class="section-title">D3.js Custom Visualizations</h2>
+            <div class="charts-grid">
+                <div class="chart-container large">
+                    <h3>ARR Area Chart with Gradient</h3>
+                    <svg id="d3ArrArea"></svg>
+                </div>
+
+                <div class="chart-container medium">
+                    <h3>NRR Custom Gauge with Thresholds</h3>
+                    <svg id="d3NrrGauge"></svg>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>CAC Trend with Efficiency Line</h3>
+                    <svg id="d3CacEfficiency"></svg>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>Customer Loss Waterfall</h3>
+                    <svg id="d3Waterfall"></svg>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>LTV Bubble Chart</h3>
+                    <svg id="d3LtvBubble"></svg>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>Expansion Sunburst (Drill-down)</h3>
+                    <svg id="d3ExpansionSunburst"></svg>
+                </div>
+
+                <div class="chart-container large">
+                    <h3>Efficiency Slope Chart</h3>
+                    <svg id="d3EfficiencySlope"></svg>
+                </div>
+
+                <div class="chart-container medium">
+                    <h3>Rule of 40 Score Visualization</h3>
+                    <svg id="d3RuleOf40"></svg>
+                </div>
+            </div>
+        </section>
+
+        <footer class="dashboard-footer">
+            <p>Powered by Chart.js • Plotly.js • D3.js | B2B SaaS Executive Dashboard</p>
+        </footer>
+    </div>
+
+    <script src="saas-dashboard.js"></script>
+</body>
+</html>

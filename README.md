@@ -2,6 +2,23 @@
 
 ![Belissima CEO Dashboard](./image)
 
+Beautiful KPI dashboards built with open-source technologies like Chart.js for stunning data visualizations.
+
+## 🎯 Two Dashboard Options
+
+### 1. [B2B SaaS CEO Dashboard](./saas-dashboard.html) - **NEW!**
+**Purpose-built for B2B SaaS companies** with 24+ visualizations across Chart.js, Plotly.js, and D3.js
+
+- 10 Core SaaS KPIs: ARR, NRR, CAC, LTV:CAC, Churn, GRR, and more
+- Interactive 3D analysis and statistical displays
+- Custom executive-ready visualizations
+- **[📖 Full Documentation](./README-SAAS.md)**
+
+![B2B SaaS Dashboard](./screenshots/dashboard-overview.png)
+
+### 2. [General Business Dashboard](./index.html) - Original
+General-purpose business metrics dashboard with 6 chart types
+
 Beautiful KPI dashboard built with open-source technologies like Chart.js for stunning data visualizations.
 
 ## ✨ Features
