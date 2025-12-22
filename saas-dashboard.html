@@ -349,11 +349,13 @@
 
     <!-- Libraries -->
     <script src="lib/chart.umd.js"></script>
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Note: Plotly.js and D3.js require CDN access or local files -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script> -->
+    <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
 
     <!-- Custom SaaS Metrics Libraries -->
     <script src="lib/chartjs-saas-metrics.js"></script>
+    <!-- Plotly and D3 libraries will only load if CDN is accessible -->
     <script src="lib/plotly-saas-analytics.js"></script>
     <script src="lib/d3-saas-visualizations.js"></script>
 
@@ -366,7 +368,7 @@
             day: 'numeric'
         });
 
-        // Initialize Chart.js charts
+        // Initialize Chart.js charts (always available)
         window.SaaSCharts.createARRTrendChart('arrTrendChart');
         window.SaaSCharts.createNRRGaugeChart('nrrGaugeChart');
         window.SaaSCharts.createCACMonthlyChart('cacMonthlyChart');
@@ -378,23 +380,37 @@
         window.SaaSCharts.createRuleOf40Chart('ruleOf40Chart');
         window.SaaSCharts.createGRRTrendChart('grrTrendChart');
 
-        // Initialize Plotly.js charts
-        window.PlotlySaaSCharts.createNRRGaugeLineChart('nrrGaugeLine');
-        window.PlotlySaaSCharts.createCACNRRCorrelationChart('cacNrrCorrelation');
-        window.PlotlySaaSCharts.createLTVSegmentAnalysis3D('ltvSegment3d');
-        window.PlotlySaaSCharts.createChurnContextChart('churnContext');
-        window.PlotlySaaSCharts.createExpansionSankeyChart('expansionSankey');
-        window.PlotlySaaSCharts.createGRRConfidenceChart('grrConfidence');
+        console.log('✅ Chart.js: 10 charts loaded');
 
-        // Initialize D3.js visualizations
-        window.D3SaaSCharts.createARRGradientArea('d3ArrGradient');
-        window.D3SaaSCharts.createNRRCustomGauge('d3NrrGauge');
-        window.D3SaaSCharts.createCACTrendLine('d3CacTrend');
-        window.D3SaaSCharts.createCustomerWaterfall('d3CustomerWaterfall');
-        window.D3SaaSCharts.createLTVBubbleChart('d3LtvBubble');
-        window.D3SaaSCharts.createExpansionSunburst('d3ExpansionSunburst');
-        window.D3SaaSCharts.createEfficiencySlope('d3EfficiencySlope');
-        window.D3SaaSCharts.createRuleOf40Score('d3RuleOf40');
+        // Initialize Plotly.js charts (if Plotly is available)
+        if (typeof Plotly !== 'undefined') {
+            window.PlotlySaaSCharts.createNRRGaugeLineChart('nrrGaugeLine');
+            window.PlotlySaaSCharts.createCACNRRCorrelationChart('cacNrrCorrelation');
+            window.PlotlySaaSCharts.createLTVSegmentAnalysis3D('ltvSegment3d');
+            window.PlotlySaaSCharts.createChurnContextChart('churnContext');
+            window.PlotlySaaSCharts.createExpansionSankeyChart('expansionSankey');
+            window.PlotlySaaSCharts.createGRRConfidenceChart('grrConfidence');
+            console.log('✅ Plotly.js: 6 charts loaded');
+        } else {
+            console.warn('⚠️ Plotly.js not loaded - CDN may be inaccessible');
+        }
+
+        // Initialize D3.js visualizations (if D3 is available)
+        if (typeof d3 !== 'undefined') {
+            window.D3SaaSCharts.createARRGradientArea('d3ArrGradient');
+            window.D3SaaSCharts.createNRRCustomGauge('d3NrrGauge');
+            window.D3SaaSCharts.createCACTrendLine('d3CacTrend');
+            window.D3SaaSCharts.createCustomerWaterfall('d3CustomerWaterfall');
+            window.D3SaaSCharts.createLTVBubbleChart('d3LtvBubble');
+            window.D3SaaSCharts.createExpansionSunburst('d3ExpansionSunburst');
+            window.D3SaaSCharts.createEfficiencySlope('d3EfficiencySlope');
+            window.D3SaaSCharts.createRuleOf40Score('d3RuleOf40');
+            console.log('✅ D3.js: 8 visualizations loaded');
+        } else {
+            console.warn('⚠️ D3.js not loaded - CDN may be inaccessible');
+        }
+
+        console.log('✅ Belissima SaaS Metrics Dashboard with WSJ Color Palettes loaded successfully!');
 
         // Add refresh animation
         setInterval(() => {
@@ -406,11 +422,6 @@
                 }, 200);
             }
         }, 5000);
-
-        console.log('✅ Belissima SaaS Metrics Dashboard with WSJ Color Palettes loaded successfully!');
-        console.log('📊 Chart.js: 10 charts loaded');
-        console.log('📊 Plotly.js: 6 charts loaded');
-        console.log('🎨 D3.js: 8 visualizations loaded');
     </script>
 </body>
 </html>
