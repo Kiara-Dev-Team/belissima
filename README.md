@@ -8,15 +8,24 @@ Beautiful KPI dashboard built with open-source technologies like Chart.js, Plotl
 
 ### Classic Dashboard (index.html)
 - **Real-time KPI Cards**: Display key metrics like Total Revenue, Net Profit, Active Customers, and Growth Rate
-- **Interactive Charts**: 6 different chart types powered by Chart.js v4.4.1
+- **Interactive Charts with Chart.js**: 6 different chart types powered by Chart.js v4.4.1
   - Line Charts: Revenue vs Expenses trends, Customer Acquisition
   - Bar Chart: Quarterly Performance comparison
   - Doughnut Chart: Revenue Breakdown by category
   - Pie Chart: Market Share analysis
   - Radar Chart: Key Metrics Overview comparison
+- **Plotly.js Interactive Visualizations**: 3 advanced interactive charts
+  - Scatter Plot: Product Performance vs Revenue with bubble sizing
+  - Sunburst Chart: Hierarchical revenue distribution
+  - Box Plot: Sales performance distribution by product
+- **D3.js Custom Visualizations**: 3 custom data visualizations
+  - Tree Map: Market segment distribution
+  - Force-Directed Graph: Interactive organizational network
+  - Chord Diagram: Department interaction flows
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **Modern UI**: Gradient backgrounds, smooth animations, and card-based layout
 - **Live Data Indicators**: Visual feedback for data updates
+- **Multi-Library Support**: Demonstrates seamless integration of multiple visualization libraries
 
 ### 🆕 SaaS Metrics Dashboard (saas-dashboard.html)
 Professional B2B SaaS CEO Dashboard with **WSJ Color Palettes** featuring:
@@ -97,7 +106,7 @@ Simply open `index.html` or `saas-dashboard.html` in your web browser. The dashb
 - **Active Customers**: 12,450 (+15.2%)
 - **Growth Rate**: 23.4% (+3.1%)
 
-### Charts
+### Chart.js Visualizations
 1. **Revenue vs Expenses Trend**: 12-month comparison with area fill
 2. **Quarterly Performance**: Bar chart showing revenue and profit by quarter
 3. **Revenue Breakdown**: Doughnut chart by revenue source
@@ -217,9 +226,9 @@ Edit `styles.css` to customize:
 - Animations and transitions
 
 ### Add New Charts
-1. Add a new canvas element in `index.html`
-2. Create a new Chart instance in `dashboard.js`
-3. Configure with Chart.js options
+1. Add a new container element in `index.html`
+2. Create a new chart instance in the appropriate JavaScript file
+3. Configure with the library's options and styling
 
 ## 📱 Responsive Breakpoints
 
@@ -239,4 +248,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🙏 Acknowledgments
 
 - [Chart.js](https://www.chartjs.org/) - Simple yet flexible JavaScript charting library
+- [Plotly.js](https://plotly.com/javascript/) - Interactive charting library with advanced visualizations
+- [D3.js](https://d3js.org/) - Data-Driven Documents for custom visualizations
 - Open Source Community - For amazing tools and libraries
