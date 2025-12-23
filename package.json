@@ -5,7 +5,12 @@
   "main": "index.html",
   "scripts": {
     "dev": "npx http-server -p 8080 -o",
-    "start": "npx http-server -p 8080"
+    "start": "npx http-server -p 8080",
+    "generate:comparison-grid": "node create-comparison-grid-svg.js",
+    "generate:screenshots": "node capture-screenshots-svg.js",
+    "generate:placeholders": "node generate-placeholder-svgs.js",
+    "generate:palettes": "node generate-palette-svgs.js",
+    "generate:all": "npm run generate:comparison-grid && npm run generate:placeholders && npm run generate:palettes"
   },
   "keywords": [
     "dashboard",
