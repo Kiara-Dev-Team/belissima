@@ -23,12 +23,14 @@ const palettes = {
     text: '#2d3748'
   },
   dualPurpose: {
+    primary: '#15803d',
     positive: '#15803d',
     negative: '#b91c1c',
     neutral: '#78716c',
     warning: '#f59e0b'
   },
   singleHue: {
+    primary: '#3b82f6',
     light: '#dbeafe',
     medium: '#3b82f6',
     dark: '#1e3a8a'
