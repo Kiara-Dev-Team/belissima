@@ -37,13 +37,3 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-
-# Context-specific settings
-[context.production]
-  command = "echo 'Production build'"
-
-[context.deploy-preview]
-  command = "echo 'Deploy preview build'"
-
-[context.branch-deploy]
-  command = "echo 'Branch deploy build'"

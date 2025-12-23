@@ -1,4 +1,4 @@
 # Redirects for Belissima Dashboard
 
-# Handle 404s by showing index
-/*    /index.html    404
+# Serve index.html for all routes (SPA-style routing)
+/*    /index.html    200
