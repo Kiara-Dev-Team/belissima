@@ -52,8 +52,16 @@ const path = require('path');
     }
   };
   
-  // Capture Chart.js screenshots in parallel (batched for memory efficiency)
-  await Promise.all(chartjsSelectors.map(chart => captureScreenshot(chart)));
+  // Helper function to process screenshots in batches (prevents memory issues)
+  async function captureBatch(charts, captureFn, batchSize = 5) {
+    for (let i = 0; i < charts.length; i += batchSize) {
+      const batch = charts.slice(i, i + batchSize);
+      await Promise.all(batch.map(chart => captureFn(chart)));
+    }
+  }
+  
+  // Capture Chart.js screenshots in batches of 5
+  await captureBatch(chartjsSelectors, captureScreenshot, 5);
   
   console.log('Capturing Plotly.js screenshots...');
   
@@ -83,7 +91,8 @@ const path = require('path');
     }
   };
   
-  await Promise.all(plotlySelectors.map(chart => capturePlotlyScreenshot(chart)));
+  // Capture Plotly screenshots in batches of 3 (3D charts use more memory)
+  await captureBatch(plotlySelectors, capturePlotlyScreenshot, 3);
   
   console.log('Capturing D3.js screenshots...');
   
@@ -115,7 +124,8 @@ const path = require('path');
     }
   };
   
-  await Promise.all(d3Selectors.map(chart => captureD3Screenshot(chart)));
+  // Capture D3 screenshots in batches of 4
+  await captureBatch(d3Selectors, captureD3Screenshot, 4);
   
   console.log('All screenshots captured successfully!');
   await browser.close();

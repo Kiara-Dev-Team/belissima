@@ -10,8 +10,8 @@ document.getElementById('currentDate').textContent = new Date().toLocaleDateStri
 // CHART.JS VISUALIZATIONS (10 Metrics)
 // ============================================================================
 
-// Common chart options for Chart.js (frozen for better performance)
-const commonChartOptions = Object.freeze({
+// Common chart options for Chart.js
+const commonChartOptions = {
     responsive: true,
     maintainAspectRatio: true,
     plugins: {
@@ -31,21 +31,23 @@ const commonChartOptions = Object.freeze({
             intersect: false
         }
     }
-});
-
-// Cache canvas contexts to avoid repeated DOM queries
-const canvasContexts = {
-    arrTrend: document.getElementById('arrTrendChart')?.getContext('2d'),
-    nrrGauge: document.getElementById('nrrGaugeChart')?.getContext('2d'),
-    cacMonth: document.getElementById('cacMonthChart')?.getContext('2d'),
-    cacPayback: document.getElementById('cacPaybackChart')?.getContext('2d'),
-    ltvCac: document.getElementById('ltvCacChart')?.getContext('2d'),
-    churnRate: document.getElementById('churnRateChart')?.getContext('2d'),
-    expansionArr: document.getElementById('expansionArrChart')?.getContext('2d'),
-    arrPerEmployee: document.getElementById('arrPerEmployeeChart')?.getContext('2d'),
-    ruleOf40: document.getElementById('ruleOf40Chart')?.getContext('2d'),
-    grrTrend: document.getElementById('grrTrendChart')?.getContext('2d')
 };
+
+// Function to create all Chart.js visualizations
+function createChartJsVisualizations() {
+    // Cache canvas contexts to avoid repeated DOM queries
+    const canvasContexts = {
+        arrTrend: document.getElementById('arrTrendChart')?.getContext('2d'),
+        nrrGauge: document.getElementById('nrrGaugeChart')?.getContext('2d'),
+        cacMonth: document.getElementById('cacMonthChart')?.getContext('2d'),
+        cacPayback: document.getElementById('cacPaybackChart')?.getContext('2d'),
+        ltvCac: document.getElementById('ltvCacChart')?.getContext('2d'),
+        churnRate: document.getElementById('churnRateChart')?.getContext('2d'),
+        expansionArr: document.getElementById('expansionArrChart')?.getContext('2d'),
+        arrPerEmployee: document.getElementById('arrPerEmployeeChart')?.getContext('2d'),
+        ruleOf40: document.getElementById('ruleOf40Chart')?.getContext('2d'),
+        grrTrend: document.getElementById('grrTrendChart')?.getContext('2d')
+    };
 
 // 1. ARR Trend (Line Chart)
 if (canvasContexts.arrTrend) {
@@ -414,6 +416,10 @@ new Chart(canvasContexts.grrTrend, {
     }
 });
 }
+}
+
+// Initialize Chart.js visualizations
+createChartJsVisualizations();
 
 // ============================================================================
 // PLOTLY.JS VISUALIZATIONS (6 Metrics)
