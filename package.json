@@ -12,6 +12,8 @@
     "bi",
     "kpi",
     "chart.js",
+    "plotly.js",
+    "d3.js",
     "business-intelligence"
   ],
   "author": "",
