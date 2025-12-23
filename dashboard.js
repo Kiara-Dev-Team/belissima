@@ -12,10 +12,10 @@ const singleHueColors = WSJColors.singleHueProgression;
 const dualPurposeColors = WSJColors.dualPurpose;
 const neutralColors = WSJColors.neutralProfessional;
 
-// Helper function to convert HEX to RGBA (uses hexToRgb from wsj-palettes.js)
+// Helper function to convert HEX to RGBA (optimized to use cached regex)
+const hexRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
 function hexToRgba(hex, alpha = 1) {
-    // hexToRgb is defined in lib/wsj-palettes.js
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const result = hexRegex.exec(hex);
     if (!result) return hex;
     const r = parseInt(result[1], 16);
     const g = parseInt(result[2], 16);
@@ -251,14 +251,16 @@ new Chart(metricsRadarCtx, {
     }
 });
 
-// Add some interactivity - simulate real-time data updates
-setInterval(() => {
-    const refreshIndicator = document.querySelector('.refresh-indicator');
-    refreshIndicator.style.opacity = '0';
-    setTimeout(() => {
-        refreshIndicator.style.opacity = '1';
-    }, 200);
-}, 5000);
+// Add some interactivity - simulate real-time data updates (optimized with cached element)
+const refreshIndicator = document.querySelector('.refresh-indicator');
+if (refreshIndicator) {
+    setInterval(() => {
+        refreshIndicator.style.opacity = '0';
+        setTimeout(() => {
+            refreshIndicator.style.opacity = '1';
+        }, 200);
+    }, 5000);
+}
 
 console.log('✅ Belissima CEO Dashboard loaded successfully!');
 console.log('📊 Using Chart.js v4.4.1 for all visualizations');

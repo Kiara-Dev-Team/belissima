@@ -10,8 +10,8 @@ document.getElementById('currentDate').textContent = new Date().toLocaleDateStri
 // CHART.JS VISUALIZATIONS (10 Metrics)
 // ============================================================================
 
-// Common chart options for Chart.js
-const commonChartOptions = {
+// Common chart options for Chart.js (frozen for better performance)
+const commonChartOptions = Object.freeze({
     responsive: true,
     maintainAspectRatio: true,
     plugins: {
@@ -31,11 +31,25 @@ const commonChartOptions = {
             intersect: false
         }
     }
+});
+
+// Cache canvas contexts to avoid repeated DOM queries
+const canvasContexts = {
+    arrTrend: document.getElementById('arrTrendChart')?.getContext('2d'),
+    nrrGauge: document.getElementById('nrrGaugeChart')?.getContext('2d'),
+    cacMonth: document.getElementById('cacMonthChart')?.getContext('2d'),
+    cacPayback: document.getElementById('cacPaybackChart')?.getContext('2d'),
+    ltvCac: document.getElementById('ltvCacChart')?.getContext('2d'),
+    churnRate: document.getElementById('churnRateChart')?.getContext('2d'),
+    expansionArr: document.getElementById('expansionArrChart')?.getContext('2d'),
+    arrPerEmployee: document.getElementById('arrPerEmployeeChart')?.getContext('2d'),
+    ruleOf40: document.getElementById('ruleOf40Chart')?.getContext('2d'),
+    grrTrend: document.getElementById('grrTrendChart')?.getContext('2d')
 };
 
 // 1. ARR Trend (Line Chart)
-const arrTrendCtx = document.getElementById('arrTrendChart').getContext('2d');
-new Chart(arrTrendCtx, {
+if (canvasContexts.arrTrend) {
+new Chart(canvasContexts.arrTrend, {
     type: 'line',
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -66,10 +80,11 @@ new Chart(arrTrendCtx, {
         }
     }
 });
+}
 
 // 2. NRR Gauge (Doughnut as Gauge)
-const nrrGaugeCtx = document.getElementById('nrrGaugeChart').getContext('2d');
-new Chart(nrrGaugeCtx, {
+if (canvasContexts.nrrGauge) {
+new Chart(canvasContexts.nrrGauge, {
     type: 'doughnut',
     data: {
         labels: ['NRR', 'To Target'],
@@ -102,10 +117,11 @@ new Chart(nrrGaugeCtx, {
         }
     }
 });
+}
 
 // 3. CAC by Month (Bar Chart)
-const cacMonthCtx = document.getElementById('cacMonthChart').getContext('2d');
-new Chart(cacMonthCtx, {
+if (canvasContexts.cacMonth) {
+new Chart(canvasContexts.cacMonth, {
     type: 'bar',
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -131,10 +147,11 @@ new Chart(cacMonthCtx, {
         }
     }
 });
+}
 
 // 4. CAC Payback Period (Line Chart)
-const cacPaybackCtx = document.getElementById('cacPaybackChart').getContext('2d');
-new Chart(cacPaybackCtx, {
+if (canvasContexts.cacPayback) {
+new Chart(canvasContexts.cacPayback, {
     type: 'line',
     data: {
         labels: ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024', 'Q2 2024'],
@@ -164,10 +181,11 @@ new Chart(cacPaybackCtx, {
         }
     }
 });
+}
 
 // 5. LTV:CAC Ratio (Bar Chart)
-const ltvCacCtx = document.getElementById('ltvCacChart').getContext('2d');
-new Chart(ltvCacCtx, {
+if (canvasContexts.ltvCac) {
+new Chart(canvasContexts.ltvCac, {
     type: 'bar',
     data: {
         labels: ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024', 'Q2 2024'],
@@ -193,10 +211,11 @@ new Chart(ltvCacCtx, {
         }
     }
 });
+}
 
 // 6. Churn Rate Trend (Line Chart)
-const churnRateCtx = document.getElementById('churnRateChart').getContext('2d');
-new Chart(churnRateCtx, {
+if (canvasContexts.churnRate) {
+new Chart(canvasContexts.churnRate, {
     type: 'line',
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -224,10 +243,11 @@ new Chart(churnRateCtx, {
         }
     }
 });
+}
 
 // 7. Expansion ARR (Stacked Bar Chart)
-const expansionArrCtx = document.getElementById('expansionArrChart').getContext('2d');
-new Chart(expansionArrCtx, {
+if (canvasContexts.expansionArr) {
+new Chart(canvasContexts.expansionArr, {
     type: 'bar',
     data: {
         labels: ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024', 'Q2 2024'],
@@ -265,10 +285,11 @@ new Chart(expansionArrCtx, {
         }
     }
 });
+}
 
 // 8. ARR per Employee (Line Chart)
-const arrPerEmployeeCtx = document.getElementById('arrPerEmployeeChart').getContext('2d');
-new Chart(arrPerEmployeeCtx, {
+if (canvasContexts.arrPerEmployee) {
+new Chart(canvasContexts.arrPerEmployee, {
     type: 'line',
     data: {
         labels: ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024', 'Q2 2024'],
@@ -298,10 +319,11 @@ new Chart(arrPerEmployeeCtx, {
         }
     }
 });
+}
 
 // 9. Rule of 40 (Combo Chart - Bar + Line)
-const ruleOf40Ctx = document.getElementById('ruleOf40Chart').getContext('2d');
-new Chart(ruleOf40Ctx, {
+if (canvasContexts.ruleOf40) {
+new Chart(canvasContexts.ruleOf40, {
     type: 'bar',
     data: {
         labels: ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024', 'Q2 2024'],
@@ -355,10 +377,11 @@ new Chart(ruleOf40Ctx, {
         }
     }
 });
+}
 
 // 10. GRR Trend (Line Chart)
-const grrTrendCtx = document.getElementById('grrTrendChart').getContext('2d');
-new Chart(grrTrendCtx, {
+if (canvasContexts.grrTrend) {
+new Chart(canvasContexts.grrTrend, {
     type: 'line',
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -390,6 +413,7 @@ new Chart(grrTrendCtx, {
         }
     }
 });
+}
 
 // ============================================================================
 // PLOTLY.JS VISUALIZATIONS (6 Metrics)
@@ -624,6 +648,7 @@ Plotly.newPlot('grrConfidencePlot', grrConfidenceData, grrConfidenceLayout, {res
 // 1. ARR Area Chart with Gradient
 function createD3ArrArea() {
     const svg = d3.select('#d3ArrArea');
+    svg.selectAll('*').remove(); // Clear previous content for resize
     const container = svg.node().parentElement;
     const width = container.clientWidth - 50;
     const height = 350;
@@ -721,6 +746,7 @@ function createD3ArrArea() {
 // 2. NRR Custom Gauge with Thresholds
 function createD3NrrGauge() {
     const svg = d3.select('#d3NrrGauge');
+    svg.selectAll('*').remove(); // Clear previous content for resize
     const container = svg.node().parentElement;
     const width = container.clientWidth - 50;
     const height = 350;
@@ -796,6 +822,7 @@ function createD3NrrGauge() {
 // 3. CAC Trend with Efficiency Line
 function createD3CacEfficiency() {
     const svg = d3.select('#d3CacEfficiency');
+    svg.selectAll('*').remove(); // Clear previous content for resize
     const container = svg.node().parentElement;
     const width = container.clientWidth - 50;
     const height = 350;
@@ -898,6 +925,7 @@ function createD3CacEfficiency() {
 // 4. Customer Loss Waterfall
 function createD3Waterfall() {
     const svg = d3.select('#d3Waterfall');
+    svg.selectAll('*').remove(); // Clear previous content for resize
     const container = svg.node().parentElement;
     const width = container.clientWidth - 50;
     const height = 350;
@@ -982,6 +1010,7 @@ function createD3Waterfall() {
 // 5. LTV Bubble Chart
 function createD3LtvBubble() {
     const svg = d3.select('#d3LtvBubble');
+    svg.selectAll('*').remove(); // Clear previous content for resize
     const container = svg.node().parentElement;
     const width = container.clientWidth - 50;
     const height = 350;
@@ -1067,6 +1096,7 @@ function createD3LtvBubble() {
 // 6. Expansion Sunburst (simplified version)
 function createD3ExpansionSunburst() {
     const svg = d3.select('#d3ExpansionSunburst');
+    svg.selectAll('*').remove(); // Clear previous content for resize
     const container = svg.node().parentElement;
     const width = container.clientWidth - 50;
     const height = 350;
@@ -1146,6 +1176,7 @@ function createD3ExpansionSunburst() {
 // 7. Efficiency Slope Chart
 function createD3EfficiencySlope() {
     const svg = d3.select('#d3EfficiencySlope');
+    svg.selectAll('*').remove(); // Clear previous content for resize
     const container = svg.node().parentElement;
     const width = container.clientWidth - 50;
     const height = 350;
@@ -1247,6 +1278,7 @@ function createD3EfficiencySlope() {
 // 8. Rule of 40 Score Visualization
 function createD3RuleOf40() {
     const svg = d3.select('#d3RuleOf40');
+    svg.selectAll('*').remove(); // Clear previous content for resize
     const container = svg.node().parentElement;
     const width = container.clientWidth - 50;
     const height = 350;
@@ -1375,14 +1407,35 @@ createD3ExpansionSunburst();
 createD3EfficiencySlope();
 createD3RuleOf40();
 
-// Add animation to refresh indicator
-setInterval(() => {
-    const refreshIndicator = document.querySelector('.refresh-indicator');
-    refreshIndicator.style.opacity = '0';
-    setTimeout(() => {
-        refreshIndicator.style.opacity = '1';
-    }, 200);
-}, 5000);
+// Debounced resize handler for D3 charts (improves performance on window resize)
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    if (resizeTimeout) {
+        clearTimeout(resizeTimeout);
+    }
+    resizeTimeout = setTimeout(() => {
+        // Recreate D3 visualizations on resize for responsive behavior
+        createD3ArrArea();
+        createD3NrrGauge();
+        createD3CacEfficiency();
+        createD3Waterfall();
+        createD3LtvBubble();
+        createD3ExpansionSunburst();
+        createD3EfficiencySlope();
+        createD3RuleOf40();
+    }, 250);
+});
+
+// Add animation to refresh indicator (optimized with cached element and guard)
+const refreshIndicator = document.querySelector('.refresh-indicator');
+if (refreshIndicator) {
+    setInterval(() => {
+        refreshIndicator.style.opacity = '0';
+        setTimeout(() => {
+            refreshIndicator.style.opacity = '1';
+        }, 200);
+    }, 5000);
+}
 
 console.log('✅ B2B SaaS CEO Dashboard loaded successfully!');
 console.log('📊 Using Chart.js, Plotly.js, and D3.js for visualizations');
