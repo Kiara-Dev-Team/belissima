@@ -9,14 +9,6 @@
   # Node.js version for any future build steps
   NODE_VERSION = "18"
 
-# Redirect rules for SPA-like behavior
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = false
-  conditions = {Role = ["admin"]}
-
 # Headers for security and performance
 [[headers]]
   for = "/*"
