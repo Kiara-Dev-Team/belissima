@@ -96,9 +96,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Gradient area | Custom branded visuals | Animated transitions, annotations |
 
 **Screenshots**:
-- Chart.js: `screenshots/arr/chartjs-arr.svg`
-- Plotly.js: `screenshots/arr/plotly-arr.svg`
-- D3.js: `screenshots/arr/d3-arr.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js ARR](./screenshots/arr/chartjs-arr.svg) |
+| **Plotly.js** | ![Plotly.js ARR](./screenshots/arr/plotly-arr.svg) |
+| **D3.js** | ![D3.js ARR](./screenshots/arr/d3-arr.svg) |
 
 **Sample Data Range**: $0-$50M ARR over 24 months (Dec 2022 - Dec 2024)  
 **Trend Shown**: 45% YoY growth with seasonality in Q4
@@ -129,9 +132,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Area + reference line | Custom benchmark visualization | Animated regions, annotations |
 
 **Screenshots**:
-- Chart.js: `screenshots/grr/chartjs-grr.svg`
-- Plotly.js: `screenshots/grr/plotly-grr.svg`
-- D3.js: `screenshots/grr/d3-grr.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js GRR](./screenshots/grr/chartjs-grr.svg) |
+| **Plotly.js** | ![Plotly.js GRR](./screenshots/grr/plotly-grr.svg) |
+| **D3.js** | ![D3.js GRR](./screenshots/grr/d3-grr.svg) |
 
 **Sample Data Range**: 85-98% retention over 24 months  
 **Trend Shown**: Improving GRR from 87% to 94% after CS initiatives
@@ -162,9 +168,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Sunburst chart | Drill-down by segment | Click to drill, zoom, animations |
 
 **Screenshots**:
-- Chart.js: `screenshots/expansion/chartjs-expansion.svg`
-- Plotly.js: `screenshots/expansion/plotly-sankey.svg`
-- D3.js: `screenshots/expansion/d3-sunburst.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js Expansion](./screenshots/expansion/chartjs-expansion.svg) |
+| **Plotly.js** | ![Plotly.js Expansion](./screenshots/expansion/plotly-sankey.svg) |
+| **D3.js** | ![D3.js Expansion](./screenshots/expansion/d3-sunburst.svg) |
 
 **Sample Data Range**: 15-45% expansion contribution over 24 months  
 **Trend Shown**: Growing expansion motion from 18% to 38%
@@ -196,9 +205,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Bubble chart | Multi-dimensional view | Size=LTV, color=segment, hover details |
 
 **Screenshots**:
-- Chart.js: `screenshots/ltv/chartjs-ltv-ratio.svg`
-- Plotly.js: `screenshots/ltv/plotly-ltv-3d.svg`
-- D3.js: `screenshots/ltv/d3-bubble.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js LTV](./screenshots/ltv/chartjs-ltv-ratio.svg) |
+| **Plotly.js** | ![Plotly.js LTV](./screenshots/ltv/plotly-ltv-3d.svg) |
+| **D3.js** | ![D3.js LTV](./screenshots/ltv/d3-bubble.svg) |
 
 **Sample Data Range**: $15K-$85K LTV by customer segment  
 **Trend Shown**: Enterprise segment LTV growing from $45K to $82K
@@ -230,9 +242,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Bar + trend line | Annotated trend analysis | Annotations, forecast line |
 
 **Screenshots**:
-- Chart.js: `screenshots/cac/chartjs-cac.svg`
-- Plotly.js: `screenshots/cac/plotly-correlation.svg`
-- D3.js: `screenshots/cac/d3-cac-trend.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js CAC](./screenshots/cac/chartjs-cac.svg) |
+| **Plotly.js** | ![Plotly.js CAC](./screenshots/cac/plotly-correlation.svg) |
+| **D3.js** | ![D3.js CAC](./screenshots/cac/d3-cac-trend.svg) |
 
 **Sample Data Range**: $3K-$18K CAC over 24 months  
 **Trend Shown**: CAC optimization from $16K to $9K through channel improvements
@@ -263,9 +278,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Stepped line | Period-over-period changes | Animated steps, annotations |
 
 **Screenshots**:
-- Chart.js: `screenshots/cac-payback/chartjs-payback.svg`
-- Plotly.js: `screenshots/cac-payback/plotly-payback-ci.svg`
-- D3.js: `screenshots/cac-payback/d3-stepped.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js CAC Payback](./screenshots/cac-payback/chartjs-payback.svg) |
+| **Plotly.js** | ![Plotly.js CAC Payback](./screenshots/cac-payback/plotly-payback-ci.svg) |
+| **D3.js** | ![D3.js CAC Payback](./screenshots/cac-payback/d3-stepped.svg) |
 
 **Sample Data Range**: 8-22 months payback over 24 months  
 **Trend Shown**: Improving from 20 months to 11 months payback
@@ -297,9 +315,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Custom ratio gauge | Visual health indicator | Animated gauge, color transitions |
 
 **Screenshots**:
-- Chart.js: `screenshots/ltv/chartjs-ltv-ratio.svg`
-- Plotly.js: `screenshots/ltv/plotly-ltv-3d.svg`
-- D3.js: `screenshots/ltv/d3-bubble.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js LTV:CAC Ratio](./screenshots/ltv/chartjs-ltv-ratio.svg) |
+| **Plotly.js** | ![Plotly.js LTV:CAC Ratio](./screenshots/ltv/plotly-ltv-3d.svg) |
+| **D3.js** | ![D3.js LTV:CAC Ratio](./screenshots/ltv/d3-bubble.svg) |
 
 **Sample Data Range**: 1.5:1 to 4.8:1 ratio over 24 months  
 **Trend Shown**: Improving unit economics from 2.1:1 to 4.5:1
@@ -333,9 +354,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Custom branded gauge | Executive presentation | Animated needle, gradient fills |
 
 **Screenshots**:
-- Chart.js: `screenshots/nrr/chartjs-gauge.svg`
-- Plotly.js: `screenshots/nrr/plotly-nrr-combo.svg`
-- D3.js: `screenshots/nrr/d3-custom-gauge.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js NRR](./screenshots/nrr/chartjs-gauge.svg) |
+| **Plotly.js** | ![Plotly.js NRR](./screenshots/nrr/plotly-nrr-combo.svg) |
+| **D3.js** | ![D3.js NRR](./screenshots/nrr/d3-custom-gauge.svg) |
 
 **Sample Data Range**: 95-125% NRR over 24 months  
 **Trend Shown**: NRR improving from 98% to 118% through expansion programs
@@ -366,9 +390,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Waterfall chart | Cohort flow visualization | Animated flow, drill-down |
 
 **Screenshots**:
-- Chart.js: `screenshots/churn/chartjs-churn.svg`
-- Plotly.js: `screenshots/churn/plotly-churn-combo.svg`
-- D3.js: `screenshots/churn/d3-waterfall.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js Churn](./screenshots/churn/chartjs-churn.svg) |
+| **Plotly.js** | ![Plotly.js Churn](./screenshots/churn/plotly-churn-combo.svg) |
+| **D3.js** | ![D3.js Churn](./screenshots/churn/d3-waterfall.svg) |
 
 **Sample Data Range**: 2.5-8.5% monthly churn over 24 months  
 **Trend Shown**: Reducing churn from 7.2% to 3.1% through CS initiatives
@@ -401,9 +428,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Slope chart | Period comparison | Animated transitions, labels |
 
 **Screenshots**:
-- Chart.js: `screenshots/arr-fte/chartjs-fte.svg`
-- Plotly.js: `screenshots/arr-fte/plotly-fte-scatter.svg`
-- D3.js: `screenshots/arr-fte/d3-slope.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js ARR/FTE](./screenshots/arr-fte/chartjs-fte.svg) |
+| **Plotly.js** | ![Plotly.js ARR/FTE](./screenshots/arr-fte/plotly-fte-scatter.svg) |
+| **D3.js** | ![D3.js ARR/FTE](./screenshots/arr-fte/d3-slope.svg) |
 
 **Sample Data Range**: $85K-$245K per FTE over 24 months  
 **Trend Shown**: Improving efficiency from $95K to $220K per FTE
@@ -434,9 +464,12 @@ Belissima tracks the 10 most important metrics for B2B SaaS companies, organized
 | **D3.js** | Custom score viz | Executive scorecard | Gauge + components, animations |
 
 **Screenshots**:
-- Chart.js: `screenshots/rule-of-40/chartjs-rule-of-40.svg`
-- Plotly.js: `screenshots/rule-of-40/plotly-rule-of-40.svg`
-- D3.js: `screenshots/rule-of-40/d3-score.svg`
+
+| Library | Screenshot |
+|---------|-----------|
+| **Chart.js** | ![Chart.js Rule of 40](./screenshots/rule-of-40/chartjs-rule-of-40.svg) |
+| **Plotly.js** | ![Plotly.js Rule of 40](./screenshots/rule-of-40/plotly-rule-of-40.svg) |
+| **D3.js** | ![D3.js Rule of 40](./screenshots/rule-of-40/d3-score.svg) |
 
 **Sample Data Range**: 22-58% Rule of 40 score over 24 months  
 **Trend Shown**: Improving from 28% to 52% through balanced growth/profitability
@@ -508,7 +541,9 @@ All palettes are designed to:
 | Steel Blue | `#4682b4` | rgb(70, 130, 180) | Tertiary data, comparisons |
 | Charcoal | `#2d3748` | rgb(45, 55, 72) | Text, labels, axes |
 
-**Screenshot**: `screenshots/palettes/financial-authority.svg`
+**Screenshot**: 
+
+![Financial Authority Palette](./screenshots/palettes/financial-authority.svg)
 
 **Best for**: ARR, GRR, Expansion ARR, Revenue metrics
 
@@ -526,7 +561,9 @@ All palettes are designed to:
 | Accent Teal | `#14b8a6` | rgb(20, 184, 166) | Positive indicators |
 | Accent Red | `#dc2626` | rgb(220, 38, 38) | Negative indicators |
 
-**Screenshot**: `screenshots/palettes/neutral-professional.svg`
+**Screenshot**: 
+
+![Neutral Professional Palette](./screenshots/palettes/neutral-professional.svg)
 
 **Best for**: NRR, Churn, operational efficiency metrics
 
@@ -544,7 +581,9 @@ All palettes are designed to:
 | Stone | `#78716c` | rgb(120, 113, 108) | Neutral, baseline |
 | Amber | `#f59e0b` | rgb(245, 158, 11) | Warnings, thresholds |
 
-**Screenshot**: `screenshots/palettes/dual-purpose.svg`
+**Screenshot**: 
+
+![Dual-Purpose Palette](./screenshots/palettes/dual-purpose.svg)
 
 **Best for**: CAC, CAC Payback Period, profit margins
 
@@ -563,7 +602,9 @@ All palettes are designed to:
 | Blue 700 | `#1d4ed8` | rgb(29, 78, 216) | Dark |
 | Blue 900 | `#1e3a8a` | rgb(30, 58, 138) | Darkest |
 
-**Screenshot**: `screenshots/palettes/single-hue-progression.svg`
+**Screenshot**: 
+
+![Single-Hue Progression Palette](./screenshots/palettes/single-hue-progression.svg)
 
 **Best for**: LTV, ARR/FTE, Rule of 40, time series
 
@@ -587,16 +628,16 @@ Chart.js provides fast, lightweight visualizations with consistent styling.
 
 | Metric | Chart Type | Screenshot | Use Case |
 |--------|-----------|-----------|----------|
-| ARR | Line | `screenshots/arr/chartjs-arr.svg` | Monthly revenue trend tracking |
-| GRR | Line | `screenshots/grr/chartjs-grr.svg` | Retention rate monitoring |
-| Expansion | Stacked Bar | `screenshots/expansion/chartjs-expansion.svg` | New vs expansion ARR split |
-| LTV | Bar Ratio | `screenshots/ltv/chartjs-ltv-ratio.svg` | LTV vs CAC comparison |
-| CAC | Bar | `screenshots/cac/chartjs-cac.svg` | Monthly acquisition cost |
-| CAC Payback | Line | `screenshots/cac-payback/chartjs-payback.svg` | Payback period trend |
-| NRR | Gauge | `screenshots/nrr/chartjs-gauge.svg` | Current NRR health status |
-| Churn | Line | `screenshots/churn/chartjs-churn.svg` | Churn rate over time |
-| ARR/FTE | Line | `screenshots/arr-fte/chartjs-fte.svg` | Efficiency trend |
-| Rule of 40 | Combo | `screenshots/rule-of-40/chartjs-rule-of-40.svg` | Growth + profitability balance |
+| ARR | Line | [![Chart.js ARR](./screenshots/arr/chartjs-arr.svg)](./screenshots/arr/chartjs-arr.svg) | Monthly revenue trend tracking |
+| GRR | Line | [![Chart.js GRR](./screenshots/grr/chartjs-grr.svg)](./screenshots/grr/chartjs-grr.svg) | Retention rate monitoring |
+| Expansion | Stacked Bar | [![Chart.js Expansion](./screenshots/expansion/chartjs-expansion.svg)](./screenshots/expansion/chartjs-expansion.svg) | New vs expansion ARR split |
+| LTV | Bar Ratio | [![Chart.js LTV](./screenshots/ltv/chartjs-ltv-ratio.svg)](./screenshots/ltv/chartjs-ltv-ratio.svg) | LTV vs CAC comparison |
+| CAC | Bar | [![Chart.js CAC](./screenshots/cac/chartjs-cac.svg)](./screenshots/cac/chartjs-cac.svg) | Monthly acquisition cost |
+| CAC Payback | Line | [![Chart.js CAC Payback](./screenshots/cac-payback/chartjs-payback.svg)](./screenshots/cac-payback/chartjs-payback.svg) | Payback period trend |
+| NRR | Gauge | [![Chart.js NRR](./screenshots/nrr/chartjs-gauge.svg)](./screenshots/nrr/chartjs-gauge.svg) | Current NRR health status |
+| Churn | Line | [![Chart.js Churn](./screenshots/churn/chartjs-churn.svg)](./screenshots/churn/chartjs-churn.svg) | Churn rate over time |
+| ARR/FTE | Line | [![Chart.js ARR/FTE](./screenshots/arr-fte/chartjs-fte.svg)](./screenshots/arr-fte/chartjs-fte.svg) | Efficiency trend |
+| Rule of 40 | Combo | [![Chart.js Rule of 40](./screenshots/rule-of-40/chartjs-rule-of-40.svg)](./screenshots/rule-of-40/chartjs-rule-of-40.svg) | Growth + profitability balance |
 
 ---
 
@@ -606,16 +647,16 @@ Plotly.js enables rich interactivity and multi-dimensional analysis.
 
 | Metric | Chart Type | Screenshot | Interactive Features |
 |--------|-----------|-----------|---------------------|
-| ARR | Line + Slider | `screenshots/arr/plotly-arr.svg` | Time range selection, zoom, pan |
-| GRR | Line + Bands | `screenshots/grr/plotly-grr.svg` | Confidence intervals, benchmark zones |
-| Expansion | Sankey | `screenshots/expansion/plotly-sankey.svg` | Flow path exploration, hover details |
-| LTV | 3D Scatter | `screenshots/ltv/plotly-ltv-3d.svg` | Rotate, segment filtering, drill-down |
-| CAC | Bar + Scatter | `screenshots/cac/plotly-correlation.svg` | Dual-axis, correlation view |
-| CAC Payback | Line + CI | `screenshots/cac-payback/plotly-payback-ci.svg` | Statistical confidence bands |
-| NRR | Gauge + Combo | `screenshots/nrr/plotly-nrr-combo.svg` | Current gauge + trend line |
-| Churn | Combo | `screenshots/churn/plotly-churn-combo.svg` | Multiple metrics, shared timeline |
-| ARR/FTE | Scatter + Trend | `screenshots/arr-fte/plotly-fte-scatter.svg` | Regression analysis, outlier detection |
-| Rule of 40 | Animated Combo | `screenshots/rule-of-40/plotly-rule-of-40.svg` | Animated transitions, component breakdown |
+| ARR | Line + Slider | [![Plotly.js ARR](./screenshots/arr/plotly-arr.svg)](./screenshots/arr/plotly-arr.svg) | Time range selection, zoom, pan |
+| GRR | Line + Bands | [![Plotly.js GRR](./screenshots/grr/plotly-grr.svg)](./screenshots/grr/plotly-grr.svg) | Confidence intervals, benchmark zones |
+| Expansion | Sankey | [![Plotly.js Expansion](./screenshots/expansion/plotly-sankey.svg)](./screenshots/expansion/plotly-sankey.svg) | Flow path exploration, hover details |
+| LTV | 3D Scatter | [![Plotly.js LTV](./screenshots/ltv/plotly-ltv-3d.svg)](./screenshots/ltv/plotly-ltv-3d.svg) | Rotate, segment filtering, drill-down |
+| CAC | Bar + Scatter | [![Plotly.js CAC](./screenshots/cac/plotly-correlation.svg)](./screenshots/cac/plotly-correlation.svg) | Dual-axis, correlation view |
+| CAC Payback | Line + CI | [![Plotly.js CAC Payback](./screenshots/cac-payback/plotly-payback-ci.svg)](./screenshots/cac-payback/plotly-payback-ci.svg) | Statistical confidence bands |
+| NRR | Gauge + Combo | [![Plotly.js NRR](./screenshots/nrr/plotly-nrr-combo.svg)](./screenshots/nrr/plotly-nrr-combo.svg) | Current gauge + trend line |
+| Churn | Combo | [![Plotly.js Churn](./screenshots/churn/plotly-churn-combo.svg)](./screenshots/churn/plotly-churn-combo.svg) | Multiple metrics, shared timeline |
+| ARR/FTE | Scatter + Trend | [![Plotly.js ARR/FTE](./screenshots/arr-fte/plotly-fte-scatter.svg)](./screenshots/arr-fte/plotly-fte-scatter.svg) | Regression analysis, outlier detection |
+| Rule of 40 | Animated Combo | [![Plotly.js Rule of 40](./screenshots/rule-of-40/plotly-rule-of-40.svg)](./screenshots/rule-of-40/plotly-rule-of-40.svg) | Animated transitions, component breakdown |
 
 ---
 
@@ -625,16 +666,16 @@ D3.js delivers custom-branded visualizations with sophisticated animations.
 
 | Metric | Chart Type | Screenshot | Custom Features |
 |--------|-----------|-----------|-----------------|
-| ARR | Gradient Area | `screenshots/arr/d3-arr.svg` | Brand colors, animated fills |
-| GRR | Area + Reference | `screenshots/grr/d3-grr.svg` | Benchmark lines, color zones |
-| Expansion | Sunburst | `screenshots/expansion/d3-sunburst.svg` | Hierarchical drill-down, zoom |
-| LTV | Bubble | `screenshots/ltv/d3-bubble.svg` | Size/color dimensions, labels |
-| CAC | Bar + Trend | `screenshots/cac/d3-cac-trend.svg` | Annotations, forecast lines |
-| CAC Payback | Stepped Line | `screenshots/cac-payback/d3-stepped.svg` | Period steps, animations |
-| NRR | Custom Gauge | `screenshots/nrr/d3-custom-gauge.svg` | Branded design, animated needle |
-| Churn | Waterfall | `screenshots/churn/d3-waterfall.svg` | Cohort flow, animated cascades |
-| ARR/FTE | Slope Chart | `screenshots/arr-fte/d3-slope.svg` | Period-to-period comparison |
-| Rule of 40 | Score Viz | `screenshots/rule-of-40/d3-score.svg` | Custom scorecard, component breakdown |
+| ARR | Gradient Area | [![D3.js ARR](./screenshots/arr/d3-arr.svg)](./screenshots/arr/d3-arr.svg) | Brand colors, animated fills |
+| GRR | Area + Reference | [![D3.js GRR](./screenshots/grr/d3-grr.svg)](./screenshots/grr/d3-grr.svg) | Benchmark lines, color zones |
+| Expansion | Sunburst | [![D3.js Expansion](./screenshots/expansion/d3-sunburst.svg)](./screenshots/expansion/d3-sunburst.svg) | Hierarchical drill-down, zoom |
+| LTV | Bubble | [![D3.js LTV](./screenshots/ltv/d3-bubble.svg)](./screenshots/ltv/d3-bubble.svg) | Size/color dimensions, labels |
+| CAC | Bar + Trend | [![D3.js CAC](./screenshots/cac/d3-cac-trend.svg)](./screenshots/cac/d3-cac-trend.svg) | Annotations, forecast lines |
+| CAC Payback | Stepped Line | [![D3.js CAC Payback](./screenshots/cac-payback/d3-stepped.svg)](./screenshots/cac-payback/d3-stepped.svg) | Period steps, animations |
+| NRR | Custom Gauge | [![D3.js NRR](./screenshots/nrr/d3-custom-gauge.svg)](./screenshots/nrr/d3-custom-gauge.svg) | Branded design, animated needle |
+| Churn | Waterfall | [![D3.js Churn](./screenshots/churn/d3-waterfall.svg)](./screenshots/churn/d3-waterfall.svg) | Cohort flow, animated cascades |
+| ARR/FTE | Slope Chart | [![D3.js ARR/FTE](./screenshots/arr-fte/d3-slope.svg)](./screenshots/arr-fte/d3-slope.svg) | Period-to-period comparison |
+| Rule of 40 | Score Viz | [![D3.js Rule of 40](./screenshots/rule-of-40/d3-score.svg)](./screenshots/rule-of-40/d3-score.svg) | Custom scorecard, component breakdown |
 
 ---
 
