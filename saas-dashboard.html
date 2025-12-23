@@ -256,10 +256,15 @@
         <div class="library-section">
             <div class="library-section-header">
                 <h2>📊 Plotly.js Interactive Analytics</h2>
-                <p>6 interactive SaaS analytics visualizations</p>
+                <p>7 interactive SaaS analytics visualizations</p>
             </div>
             
             <div class="chart-grid-saas">
+                <div class="chart-card-saas full-width">
+                    <h3>ARR Trend with Range Slider (Financial Authority)</h3>
+                    <div id="arrTrendPlotly"></div>
+                </div>
+
                 <div class="chart-card-saas full-width">
                     <h3>NRR Gauge + Line (Neutral Professional)</h3>
                     <div id="nrrGaugeLine"></div>
@@ -349,13 +354,13 @@
 
     <!-- Libraries -->
     <script src="lib/chart.umd.js"></script>
-    <!-- Note: Plotly.js and D3.js loaded from CDN. For offline use, download locally to lib/ folder -->
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Use local libraries instead of CDN for reliability -->
+    <script src="lib/plotly.min.js"></script>
+    <script src="lib/d3.min.js"></script>
 
     <!-- Custom SaaS Metrics Libraries -->
     <script src="lib/chartjs-saas-metrics.js"></script>
-    <!-- Plotly and D3 libraries will only load if CDN is accessible -->
+    <!-- Plotly and D3 libraries loaded locally -->
     <script src="lib/plotly-saas-analytics.js"></script>
     <script src="lib/d3-saas-visualizations.js"></script>
 
@@ -384,13 +389,14 @@
 
         // Initialize Plotly.js charts (if Plotly is available)
         if (typeof Plotly !== 'undefined') {
+            window.PlotlySaaSCharts.createARRTrendChart('arrTrendPlotly');
             window.PlotlySaaSCharts.createNRRGaugeLineChart('nrrGaugeLine');
             window.PlotlySaaSCharts.createCACNRRCorrelationChart('cacNrrCorrelation');
             window.PlotlySaaSCharts.createLTVSegmentAnalysis3D('ltvSegment3d');
             window.PlotlySaaSCharts.createChurnContextChart('churnContext');
             window.PlotlySaaSCharts.createExpansionSankeyChart('expansionSankey');
             window.PlotlySaaSCharts.createGRRConfidenceChart('grrConfidence');
-            console.log('✅ Plotly.js: 6 charts loaded');
+            console.log('✅ Plotly.js: 7 charts loaded');
         } else {
             console.warn('⚠️ Plotly.js not loaded - CDN may be inaccessible');
         }
