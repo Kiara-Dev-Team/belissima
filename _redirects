@@ -1,9 +1,4 @@
 # Redirects for Belissima Dashboard
 
-# Main pages - ensure they load correctly
-/                    /index.html           200
-/color-system        /color-system.html    200
-/saas-dashboard      /saas-dashboard.html  200
-
 # Handle 404s by showing index
-/*                   /index.html           404
+/*    /index.html    404

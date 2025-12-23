@@ -38,13 +38,6 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# Plugin configuration for form handling (if needed in future)
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-
-  [plugins.inputs]
-    output_path = "reports/lighthouse.html"
-
 # Context-specific settings
 [context.production]
   command = "echo 'Production build'"

@@ -204,7 +204,7 @@ Example function:
 exports.handler = async (event, context) => {
   return {
     statusCode: 200,
-    body: JSON.stringify({ arr: 2400000, nrr: 1.15 })
+    body: JSON.stringify({ ARR: 2400000, NRR: 1.15 })
   };
 };
 ```
