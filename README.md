@@ -111,6 +111,34 @@ Simply open `index.html` in your web browser. The dashboard uses Chart.js from C
 
 ## 🎨 Customization
 
+### WSJ Color System
+Belissima now includes a professional **WSJ Color Palette System** designed specifically for SaaS metrics visualization. The system includes 4 carefully crafted color palettes:
+
+1. **Financial Authority**: Conservative, institutional tone for ARR and growth metrics
+2. **Neutral Professional**: Grayscale-first approach for retention and churn analysis
+3. **Dual-Purpose**: Paired opposing colors for comparison visualizations
+4. **Single-Hue Progression**: Clean, minimal color family for sequential data
+
+**Access the Color System:**
+- Click "🎨 Color System" in the dashboard header
+- Or navigate to `color-system.html`
+- Features include:
+  - Interactive color swatches with click-to-copy
+  - HEX and RGB color values
+  - Implementation guidelines
+  - Accessibility best practices (WCAG 2.1 AA compliant)
+
+**Using WSJ Colors in Your Code:**
+```javascript
+// Colors are available via WSJColors object
+const financialColors = WSJColors.financialAuthority;
+const singleHueColors = WSJColors.singleHueProgression;
+
+// Or use CSS variables
+var(--wsj-fa-navy-dark)
+var(--wsj-sh-blue-60)
+```
+
 ### Modify Data
 Edit the respective JavaScript files to update chart data:
 - **Chart.js charts**: Edit `dashboard.js`

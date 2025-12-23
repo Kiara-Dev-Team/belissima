@@ -6,6 +6,23 @@ document.getElementById('currentDate').textContent = new Date().toLocaleDateStri
     day: 'numeric'
 });
 
+// WSJ Color Palettes - Financial Authority for primary dashboard
+const financialAuthorityColors = WSJColors.financialAuthority;
+const singleHueColors = WSJColors.singleHueProgression;
+const dualPurposeColors = WSJColors.dualPurpose;
+const neutralColors = WSJColors.neutralProfessional;
+
+// Helper function to convert HEX to RGBA (uses hexToRgb from wsj-palettes.js)
+function hexToRgba(hex, alpha = 1) {
+    // hexToRgb is defined in lib/wsj-palettes.js
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (!result) return hex;
+    const r = parseInt(result[1], 16);
+    const g = parseInt(result[2], 16);
+    const b = parseInt(result[3], 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
 // Common chart options
 const commonOptions = {
     responsive: true,
@@ -24,7 +41,7 @@ const commonOptions = {
     }
 };
 
-// Revenue vs Expenses Chart (Line)
+// Revenue vs Expenses Chart (Line) - Financial Authority palette
 const revenueExpensesCtx = document.getElementById('revenueExpensesChart').getContext('2d');
 new Chart(revenueExpensesCtx, {
     type: 'line',
@@ -33,16 +50,16 @@ new Chart(revenueExpensesCtx, {
         datasets: [{
             label: 'Revenue',
             data: [185000, 195000, 210000, 225000, 240000, 235000, 255000, 270000, 265000, 280000, 295000, 310000],
-            borderColor: '#4CAF50',
-            backgroundColor: 'rgba(76, 175, 80, 0.1)',
+            borderColor: financialAuthorityColors[2], // Teal Accent
+            backgroundColor: hexToRgba(financialAuthorityColors[2], 0.12),
             borderWidth: 3,
             tension: 0.4,
             fill: true
         }, {
             label: 'Expenses',
             data: [135000, 142000, 148000, 155000, 162000, 158000, 165000, 172000, 168000, 175000, 182000, 188000],
-            borderColor: '#F44336',
-            backgroundColor: 'rgba(244, 67, 54, 0.1)',
+            borderColor: financialAuthorityColors[3], // Burgundy
+            backgroundColor: hexToRgba(financialAuthorityColors[3], 0.12),
             borderWidth: 3,
             tension: 0.4,
             fill: true
@@ -63,7 +80,7 @@ new Chart(revenueExpensesCtx, {
     }
 });
 
-// Quarterly Performance Chart (Bar)
+// Quarterly Performance Chart (Bar) - Financial Authority palette
 const quarterlyCtx = document.getElementById('quarterlyChart').getContext('2d');
 new Chart(quarterlyCtx, {
     type: 'bar',
@@ -72,14 +89,14 @@ new Chart(quarterlyCtx, {
         datasets: [{
             label: 'Revenue',
             data: [590000, 700000, 790000, 885000, 950000],
-            backgroundColor: 'rgba(102, 126, 234, 0.8)',
-            borderColor: '#667eea',
+            backgroundColor: hexToRgba(financialAuthorityColors[0], 0.8), // Navy Dark with opacity
+            borderColor: financialAuthorityColors[0],
             borderWidth: 2
         }, {
             label: 'Profit',
             data: [165000, 198000, 237000, 267000, 295000],
-            backgroundColor: 'rgba(118, 75, 162, 0.8)',
-            borderColor: '#764ba2',
+            backgroundColor: hexToRgba(financialAuthorityColors[1], 0.8), // Slate Gray with opacity
+            borderColor: financialAuthorityColors[1],
             borderWidth: 2
         }]
     },
@@ -98,7 +115,7 @@ new Chart(quarterlyCtx, {
     }
 });
 
-// Revenue Breakdown Chart (Doughnut)
+// Revenue Breakdown Chart (Doughnut) - Single-Hue Progression palette
 const revenueBreakdownCtx = document.getElementById('revenueBreakdownChart').getContext('2d');
 new Chart(revenueBreakdownCtx, {
     type: 'doughnut',
@@ -107,19 +124,13 @@ new Chart(revenueBreakdownCtx, {
         datasets: [{
             data: [45, 25, 18, 10, 2],
             backgroundColor: [
-                'rgba(102, 126, 234, 0.8)',
-                'rgba(118, 75, 162, 0.8)',
-                'rgba(76, 175, 80, 0.8)',
-                'rgba(255, 152, 0, 0.8)',
-                'rgba(33, 150, 243, 0.8)'
+                hexToRgba(singleHueColors[0], 0.8),
+                hexToRgba(singleHueColors[1], 0.8),
+                hexToRgba(singleHueColors[2], 0.8),
+                hexToRgba(singleHueColors[3], 0.8),
+                hexToRgba(singleHueColors[4], 0.8)
             ],
-            borderColor: [
-                '#667eea',
-                '#764ba2',
-                '#4CAF50',
-                '#FF9800',
-                '#2196F3'
-            ],
+            borderColor: singleHueColors,
             borderWidth: 2
         }]
     },
@@ -134,7 +145,7 @@ new Chart(revenueBreakdownCtx, {
     }
 });
 
-// Customer Acquisition Chart (Area)
+// Customer Acquisition Chart (Area) - Financial Authority palette
 const customerCtx = document.getElementById('customerChart').getContext('2d');
 new Chart(customerCtx, {
     type: 'line',
@@ -143,13 +154,13 @@ new Chart(customerCtx, {
         datasets: [{
             label: 'New Customers',
             data: [450, 520, 580, 620, 690, 750, 810, 880, 920, 980, 1050, 1120],
-            borderColor: '#FF9800',
-            backgroundColor: 'rgba(255, 152, 0, 0.2)',
+            borderColor: financialAuthorityColors[2], // Teal Accent
+            backgroundColor: hexToRgba(financialAuthorityColors[2], 0.2),
             borderWidth: 3,
             tension: 0.4,
             fill: true,
             pointRadius: 4,
-            pointBackgroundColor: '#FF9800'
+            pointBackgroundColor: financialAuthorityColors[2]
         }]
     },
     options: {
@@ -162,7 +173,7 @@ new Chart(customerCtx, {
     }
 });
 
-// Market Share Chart (Pie)
+// Market Share Chart (Pie) - Dual-Purpose palette
 const marketShareCtx = document.getElementById('marketShareChart').getContext('2d');
 new Chart(marketShareCtx, {
     type: 'pie',
@@ -171,18 +182,18 @@ new Chart(marketShareCtx, {
         datasets: [{
             data: [32, 24, 18, 15, 11],
             backgroundColor: [
-                'rgba(76, 175, 80, 0.8)',
-                'rgba(244, 67, 54, 0.8)',
-                'rgba(255, 152, 0, 0.8)',
-                'rgba(33, 150, 243, 0.8)',
-                'rgba(156, 39, 176, 0.8)'
+                hexToRgba(dualPurposeColors[0], 0.8), // Deep Teal for us
+                hexToRgba(neutralColors[0], 0.8),      // Charcoal
+                hexToRgba(neutralColors[1], 0.8),      // Medium Gray
+                hexToRgba(neutralColors[2], 0.8),      // Light Gray
+                hexToRgba(dualPurposeColors[1], 0.8)   // Deep Plum
             ],
             borderColor: [
-                '#4CAF50',
-                '#F44336',
-                '#FF9800',
-                '#2196F3',
-                '#9C27B0'
+                dualPurposeColors[0],
+                neutralColors[0],
+                neutralColors[1],
+                neutralColors[2],
+                dualPurposeColors[1]
             ],
             borderWidth: 2
         }]
@@ -198,7 +209,7 @@ new Chart(marketShareCtx, {
     }
 });
 
-// Key Metrics Radar Chart
+// Key Metrics Radar Chart - Dual-Purpose palette
 const metricsRadarCtx = document.getElementById('metricsRadarChart').getContext('2d');
 new Chart(metricsRadarCtx, {
     type: 'radar',
@@ -207,23 +218,23 @@ new Chart(metricsRadarCtx, {
         datasets: [{
             label: 'Current Year',
             data: [85, 92, 78, 88, 82, 90],
-            borderColor: '#667eea',
-            backgroundColor: 'rgba(102, 126, 234, 0.2)',
+            borderColor: dualPurposeColors[0],
+            backgroundColor: hexToRgba(dualPurposeColors[0], 0.2),
             borderWidth: 2,
-            pointBackgroundColor: '#667eea',
+            pointBackgroundColor: dualPurposeColors[0],
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: '#667eea'
+            pointHoverBorderColor: dualPurposeColors[0]
         }, {
             label: 'Previous Year',
             data: [75, 85, 72, 80, 78, 82],
-            borderColor: '#764ba2',
-            backgroundColor: 'rgba(118, 75, 162, 0.2)',
+            borderColor: dualPurposeColors[1],
+            backgroundColor: hexToRgba(dualPurposeColors[1], 0.2),
             borderWidth: 2,
-            pointBackgroundColor: '#764ba2',
+            pointBackgroundColor: dualPurposeColors[1],
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: '#764ba2'
+            pointHoverBorderColor: dualPurposeColors[1]
         }]
     },
     options: {
@@ -251,3 +262,4 @@ setInterval(() => {
 
 console.log('✅ Belissima CEO Dashboard loaded successfully!');
 console.log('📊 Using Chart.js v4.4.1 for all visualizations');
+console.log('🎨 Powered by WSJ Color Palette System for professional data visualization');
