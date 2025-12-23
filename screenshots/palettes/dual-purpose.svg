@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .palette-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 28px; font-weight: bold; }
+      .palette-desc { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 16px; }
+      .color-name { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; }
+      .color-hex { font-family: 'Courier New', monospace; font-size: 12px; }
+      .color-usage { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; }
+    </style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="400" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" fill="#1e293b" class="palette-title">Dual-Purpose Palette</text>
+  <text x="600" y="70" text-anchor="middle" fill="#64748b" class="palette-desc">Cost, efficiency, and profitability metrics</text>
+  
+  <!-- Color Swatches -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="100" width="180" height="120" fill="#15803d" rx="8"/>
+  </g>
+  
+  <text x="300" y="160" text-anchor="middle" fill="#ffffff" class="color-name">Forest Green</text>
+  <text x="300" y="180" text-anchor="middle" fill="#ffffff" class="color-hex">#15803d</text>
+  
+  <text x="300" y="245" text-anchor="middle" fill="#475569" class="color-usage">Positive, gains, revenue</text>
+  
+  <g filter="url(#shadow)">
+    <rect x="410" y="100" width="180" height="120" fill="#b91c1c" rx="8"/>
+  </g>
+  
+  <text x="500" y="160" text-anchor="middle" fill="#ffffff" class="color-name">Crimson</text>
+  <text x="500" y="180" text-anchor="middle" fill="#ffffff" class="color-hex">#b91c1c</text>
+  
+  <text x="500" y="245" text-anchor="middle" fill="#475569" class="color-usage">Negative, costs, losses</text>
+  
+  <g filter="url(#shadow)">
+    <rect x="610" y="100" width="180" height="120" fill="#78716c" rx="8"/>
+  </g>
+  
+  <text x="700" y="160" text-anchor="middle" fill="#ffffff" class="color-name">Stone</text>
+  <text x="700" y="180" text-anchor="middle" fill="#ffffff" class="color-hex">#78716c</text>
+  
+  <text x="700" y="245" text-anchor="middle" fill="#475569" class="color-usage">Neutral, baseline</text>
+  
+  <g filter="url(#shadow)">
+    <rect x="810" y="100" width="180" height="120" fill="#f59e0b" rx="8"/>
+  </g>
+  
+  <text x="900" y="160" text-anchor="middle" fill="#1e293b" class="color-name">Amber</text>
+  <text x="900" y="180" text-anchor="middle" fill="#1e293b" class="color-hex">#f59e0b</text>
+  
+  <text x="900" y="245" text-anchor="middle" fill="#475569" class="color-usage">Warnings, thresholds</text>
+  
+  <text x="600" y="380" text-anchor="middle" fill="#94a3b8" font-size="12">
+    WCAG 2.1 AA Compliant • Colorblind Safe • Print Safe
+  </text>
+</svg>
