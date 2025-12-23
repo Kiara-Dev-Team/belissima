@@ -11,10 +11,21 @@
         <header class="dashboard-header">
             <h1>📊 Belissima CEO Dashboard</h1>
             <div class="header-info">
+                <a href="color-system.html" class="color-system-link" title="View WSJ Color System">🎨 Color System</a>
                 <span class="date" id="currentDate"></span>
                 <span class="refresh-indicator">🔄 Live Data</span>
             </div>
         </header>
+
+        <div style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);">
+            <p style="margin: 0; font-size: 1.1rem; color: #333;">
+                🚀 <strong>New!</strong> Check out our 
+                <a href="saas-dashboard.html" style="color: #667eea; text-decoration: none; font-weight: bold;">
+                    SaaS Metrics Dashboard with WSJ Color Palettes
+                </a>
+                featuring 24 professional B2B SaaS visualizations across Chart.js, Plotly.js, and D3.js
+            </p>
+        </div>
 
         <div class="kpi-cards">
             <div class="kpi-card revenue">
@@ -83,12 +94,61 @@
             </div>
         </div>
 
+        <section class="alternative-viz-section">
+            <h2 class="section-title">📊 Alternative Visualization Libraries</h2>
+            
+            <div class="viz-library-group">
+                <h3 class="library-title">Plotly.js Interactive Charts</h3>
+                <div class="charts-grid">
+                    <div class="chart-container medium">
+                        <h2>Product Performance Analysis</h2>
+                        <div id="plotlyScatter"></div>
+                    </div>
+
+                    <div class="chart-container medium">
+                        <h2>Revenue Distribution Hierarchy</h2>
+                        <div id="plotlySunburst"></div>
+                    </div>
+
+                    <div class="chart-container large">
+                        <h2>Sales Performance Distribution</h2>
+                        <div id="plotlyBox"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viz-library-group">
+                <h3 class="library-title">D3.js Custom Visualizations</h3>
+                <div class="charts-grid">
+                    <div class="chart-container medium">
+                        <h2>Market Segments</h2>
+                        <div id="d3TreeMap"></div>
+                    </div>
+
+                    <div class="chart-container medium">
+                        <h2>Organizational Network</h2>
+                        <div id="d3ForceGraph"></div>
+                    </div>
+
+                    <div class="chart-container large">
+                        <h2>Department Interactions</h2>
+                        <div id="d3Chord"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <footer class="dashboard-footer">
-            <p>Powered by Chart.js • Open Source BI Dashboard</p>
+            <p>Powered by Chart.js, Plotly.js & D3.js • Open Source BI Dashboard</p>
         </footer>
     </div>
 
     <script src="lib/chart.umd.js"></script>
+    <script src="lib/wsj-palettes.js"></script>
     <script src="dashboard.js"></script>
+    <script src="node_modules/plotly.js-dist-min/plotly.min.js"></script>
+    <script src="node_modules/d3/dist/d3.min.js"></script>
+    <script src="lib/plotly-components.js"></script>
+    <script src="lib/d3-components.js"></script>
 </body>
 </html>

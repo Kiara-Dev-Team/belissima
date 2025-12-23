@@ -765,7 +765,49 @@ ws.onmessage = (event) => {
 
 ---
 
-## 🎨 Customization
+## 🎨 Color Palettes
+
+The SaaS Dashboard uses professional Wall Street Journal (WSJ) inspired color palettes:
+
+### CSS Variables
+All color palettes are defined as CSS custom properties in `styles.css`:
+
+```css
+/* Financial Authority Palette */
+--color-navy-dark: #1B2D4D;
+--color-slate-gray: #4A5568;
+--color-teal-accent: #2D7B8C;
+--color-burgundy-warning: #8B3A3A;
+--color-cream-bg: #F5F4F0;
+
+/* Neutral Professional Palette */
+--color-charcoal: #2C2C2C;
+--color-medium-gray: #6B7280;
+--color-light-gray: #D1D5DB;
+--color-forest-accent: #1F5233;
+--color-off-white: #F9F7F4;
+
+/* Dual-Purpose Palette */
+--color-deep-teal: #0D5C63;
+--color-deep-plum: #6A3E37;
+--color-light-sage: #E8F1F0;
+--color-light-mauve: #F4EBE8;
+
+/* Single-Hue Progression Palette */
+--color-blue-100: #003A66;
+--color-blue-80: #1A5C8C;
+--color-blue-60: #4A7CB4;
+--color-blue-40: #8AA8D1;
+--color-blue-20: #D4E1F0;
+```
+
+### Usage Guidelines
+- **Text Contrast**: Minimum 4.5:1 ratio for WCAG AA compliance
+- **Chart Backgrounds**: Use light palette colors (Cream, Off-White, Light Sage/Mauve)
+- **Accent Colors**: Navy Dark, Teal, Forest Green for call-outs
+- **Warnings/Alerts**: Burgundy (#8B3A3A) for threshold breaches
+- **Gradients**: Use single-hue progression for smooth transitions
+- **Grid Lines**: Use light grays at 50% opacity
 
 Make Belissima your own.
 

@@ -12,12 +12,16 @@
     "bi",
     "kpi",
     "chart.js",
+    "plotly.js",
+    "d3.js",
     "business-intelligence"
   ],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "chart.js": "^4.4.1"
+    "chart.js": "^4.4.1",
+    "d3": "^7.9.0",
+    "plotly.js-dist-min": "^3.3.1"
   },
   "devDependencies": {
     "http-server": "^14.1.1"

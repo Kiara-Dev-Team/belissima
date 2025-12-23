@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belissima - SaaS Metrics Dashboard with WSJ Color Palettes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for SaaS dashboard */
+        .saas-dashboard-header {
+            background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-teal-accent) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .saas-dashboard-header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        .saas-dashboard-header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .library-section {
+            margin-bottom: 50px;
+        }
+
+        .library-section-header {
+            background: var(--color-cream-bg);
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--color-navy-dark);
+        }
+
+        .library-section-header h2 {
+            margin: 0;
+            color: var(--color-navy-dark);
+            font-size: 1.8rem;
+        }
+
+        .library-section-header p {
+            margin: 5px 0 0 0;
+            color: var(--color-slate-gray);
+        }
+
+        .chart-grid-saas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card-saas {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chart-card-saas:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .chart-card-saas h3 {
+            margin: 0 0 20px 0;
+            color: var(--color-navy-dark);
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--color-cream-bg);
+            padding-bottom: 10px;
+        }
+
+        .chart-card-saas.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .palette-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .palette-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .palette-item h4 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: var(--color-charcoal);
+        }
+
+        .palette-colors {
+            display: flex;
+            gap: 5px;
+        }
+
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .d3-chart-container {
+            min-height: 400px;
+        }
+
+        @media (max-width: 768px) {
+            .chart-grid-saas {
+                grid-template-columns: 1fr;
+            }
+
+            .saas-dashboard-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="saas-dashboard-header">
+            <h1>📊 Belissima SaaS Metrics Dashboard</h1>
+            <p>B2B SaaS CEO Dashboard with WSJ Professional Color Palettes</p>
+            <p style="font-size: 0.9rem; margin-top: 15px;">
+                <span id="currentDate"></span> • 
+                <span class="refresh-indicator" style="color: var(--color-cream-bg);">🔄 Live Data</span>
+            </p>
+        </div>
+
+        <!-- Color Palette Legend -->
+        <div class="palette-legend">
+            <div class="palette-item">
+                <h4>Financial Authority</h4>
+                <div class="palette-colors">
+                    <div class="color-swatch" style="background-color: #1B2D4D;" title="Navy Dark"></div>
+                    <div class="color-swatch" style="background-color: #4A5568;" title="Slate Gray"></div>
+                    <div class="color-swatch" style="background-color: #2D7B8C;" title="Teal Accent"></div>
+                    <div class="color-swatch" style="background-color: #8B3A3A;" title="Burgundy"></div>
+                    <div class="color-swatch" style="background-color: #F5F4F0;" title="Cream"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">ARR, GRR, Expansion</p>
+            </div>
+            <div class="palette-item">
+                <h4>Neutral Professional</h4>
+                <div class="palette-colors">
+                    <div class="color-swatch" style="background-color: #2C2C2C;" title="Charcoal"></div>
+                    <div class="color-swatch" style="background-color: #6B7280;" title="Medium Gray"></div>
+                    <div class="color-swatch" style="background-color: #D1D5DB;" title="Light Gray"></div>
+                    <div class="color-swatch" style="background-color: #1F5233;" title="Forest Accent"></div>
+                    <div class="color-swatch" style="background-color: #F9F7F4;" title="Off-White"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">NRR, Churn, Retention</p>
+            </div>
+            <div class="palette-item">
+                <h4>Dual-Purpose</h4>
+                <div class="palette-colors">
+                    <div class="color-swatch" style="background-color: #0D5C63;" title="Deep Teal"></div>
+                    <div class="color-swatch" style="background-color: #6A3E37;" title="Deep Plum"></div>
+                    <div class="color-swatch" style="background-color: #E8F1F0;" title="Light Sage"></div>
+                    <div class="color-swatch" style="background-color: #F4EBE8;" title="Light Mauve"></div>
+                    <div class="color-swatch" style="background-color: #FFFFFF;" title="White"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">CAC, Payback, Comparisons</p>
+            </div>
+            <div class="palette-item">
+                <h4>Single-Hue Progression</h4>
+                <div class="palette-colors">
+                    <div class="color-swatch" style="background-color: #003A66;" title="Blue 100"></div>
+                    <div class="color-swatch" style="background-color: #1A5C8C;" title="Blue 80"></div>
+                    <div class="color-swatch" style="background-color: #4A7CB4;" title="Blue 60"></div>
+                    <div class="color-swatch" style="background-color: #8AA8D1;" title="Blue 40"></div>
+                    <div class="color-swatch" style="background-color: #D4E1F0;" title="Blue 20"></div>
+                </div>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">LTV, Rule of 40, Efficiency</p>
+            </div>
+        </div>
+
+        <!-- Chart.js Section -->
+        <div class="library-section">
+            <div class="library-section-header">
+                <h2>📈 Chart.js SaaS Metrics</h2>
+                <p>10 core SaaS metrics with WSJ color palettes</p>
+            </div>
+            
+            <div class="chart-grid-saas">
+                <div class="chart-card-saas">
+                    <h3>ARR Trend (Financial Authority)</h3>
+                    <canvas id="arrTrendChart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>NRR Gauge (Neutral Professional)</h3>
+                    <canvas id="nrrGaugeChart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>CAC Monthly (Dual-Purpose)</h3>
+                    <canvas id="cacMonthlyChart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>CAC Payback Period (Dual-Purpose)</h3>
+                    <canvas id="cacPaybackChart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>LTV:CAC Ratio (Single-Hue Progression)</h3>
+                    <canvas id="ltvCacRatioChart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>Churn Rate Trend (Neutral Professional)</h3>
+                    <canvas id="churnRateChart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>Expansion ARR (Financial Authority)</h3>
+                    <canvas id="expansionArrChart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>ARR per Employee (Single-Hue Progression)</h3>
+                    <canvas id="arrPerEmployeeChart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>Rule of 40 (Single-Hue Progression)</h3>
+                    <canvas id="ruleOf40Chart"></canvas>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>GRR Trend (Financial Authority)</h3>
+                    <canvas id="grrTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plotly.js Section -->
+        <div class="library-section">
+            <div class="library-section-header">
+                <h2>📊 Plotly.js Interactive Analytics</h2>
+                <p>6 interactive SaaS analytics visualizations</p>
+            </div>
+            
+            <div class="chart-grid-saas">
+                <div class="chart-card-saas full-width">
+                    <h3>NRR Gauge + Line (Neutral Professional)</h3>
+                    <div id="nrrGaugeLine"></div>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>CAC vs NRR Correlation (Dual-Purpose)</h3>
+                    <div id="cacNrrCorrelation"></div>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>LTV Segment Analysis 3D (Single-Hue)</h3>
+                    <div id="ltvSegment3d"></div>
+                </div>
+
+                <div class="chart-card-saas full-width">
+                    <h3>Churn Context (Neutral Professional)</h3>
+                    <div id="churnContext"></div>
+                </div>
+
+                <div class="chart-card-saas full-width">
+                    <h3>Expansion Sankey (Financial Authority)</h3>
+                    <div id="expansionSankey"></div>
+                </div>
+
+                <div class="chart-card-saas full-width">
+                    <h3>GRR Confidence Intervals (Financial Authority)</h3>
+                    <div id="grrConfidence"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- D3.js Section -->
+        <div class="library-section">
+            <div class="library-section-header">
+                <h2>🎨 D3.js Custom Visualizations</h2>
+                <p>8 custom D3 SaaS visualizations with WSJ styling</p>
+            </div>
+            
+            <div class="chart-grid-saas">
+                <div class="chart-card-saas full-width">
+                    <h3>ARR Gradient Area (Financial Authority)</h3>
+                    <div id="d3ArrGradient" class="d3-chart-container"></div>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>NRR Custom Gauge (Neutral Professional)</h3>
+                    <div id="d3NrrGauge" class="d3-chart-container" style="display: flex; justify-content: center; align-items: center;"></div>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>CAC Trend Line (Dual-Purpose)</h3>
+                    <div id="d3CacTrend" class="d3-chart-container"></div>
+                </div>
+
+                <div class="chart-card-saas full-width">
+                    <h3>Customer Waterfall (Neutral Professional)</h3>
+                    <div id="d3CustomerWaterfall" class="d3-chart-container"></div>
+                </div>
+
+                <div class="chart-card-saas full-width">
+                    <h3>LTV Bubble Chart (Single-Hue Progression)</h3>
+                    <div id="d3LtvBubble" class="d3-chart-container"></div>
+                </div>
+
+                <div class="chart-card-saas">
+                    <h3>Expansion Sunburst (Financial Authority)</h3>
+                    <div id="d3ExpansionSunburst" class="d3-chart-container" style="display: flex; justify-content: center; align-items: center;"></div>
+                </div>
+
+                <div class="chart-card-saas full-width">
+                    <h3>Efficiency Slope (Single-Hue Progression)</h3>
+                    <div id="d3EfficiencySlope" class="d3-chart-container"></div>
+                </div>
+
+                <div class="chart-card-saas full-width">
+                    <h3>Rule of 40 Score (Single-Hue Progression)</h3>
+                    <div id="d3RuleOf40" class="d3-chart-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="dashboard-footer">
+            <p>Powered by Chart.js, Plotly.js & D3.js • WSJ Professional Color Palettes • B2B SaaS Metrics Dashboard</p>
+        </footer>
+    </div>
+
+    <!-- Libraries -->
+    <script src="lib/chart.umd.js"></script>
+    <!-- Note: Plotly.js and D3.js loaded from CDN. For offline use, download locally to lib/ folder -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Custom SaaS Metrics Libraries -->
+    <script src="lib/chartjs-saas-metrics.js"></script>
+    <!-- Plotly and D3 libraries will only load if CDN is accessible -->
+    <script src="lib/plotly-saas-analytics.js"></script>
+    <script src="lib/d3-saas-visualizations.js"></script>
+
+    <script>
+        // Display current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Initialize Chart.js charts (always available)
+        window.SaaSCharts.createARRTrendChart('arrTrendChart');
+        window.SaaSCharts.createNRRGaugeChart('nrrGaugeChart');
+        window.SaaSCharts.createCACMonthlyChart('cacMonthlyChart');
+        window.SaaSCharts.createCACPaybackChart('cacPaybackChart');
+        window.SaaSCharts.createLTVCACRatioChart('ltvCacRatioChart');
+        window.SaaSCharts.createChurnRateChart('churnRateChart');
+        window.SaaSCharts.createExpansionARRChart('expansionArrChart');
+        window.SaaSCharts.createARRPerEmployeeChart('arrPerEmployeeChart');
+        window.SaaSCharts.createRuleOf40Chart('ruleOf40Chart');
+        window.SaaSCharts.createGRRTrendChart('grrTrendChart');
+
+        console.log('✅ Chart.js: 10 charts loaded');
+
+        // Initialize Plotly.js charts (if Plotly is available)
+        if (typeof Plotly !== 'undefined') {
+            window.PlotlySaaSCharts.createNRRGaugeLineChart('nrrGaugeLine');
+            window.PlotlySaaSCharts.createCACNRRCorrelationChart('cacNrrCorrelation');
+            window.PlotlySaaSCharts.createLTVSegmentAnalysis3D('ltvSegment3d');
+            window.PlotlySaaSCharts.createChurnContextChart('churnContext');
+            window.PlotlySaaSCharts.createExpansionSankeyChart('expansionSankey');
+            window.PlotlySaaSCharts.createGRRConfidenceChart('grrConfidence');
+            console.log('✅ Plotly.js: 6 charts loaded');
+        } else {
+            console.warn('⚠️ Plotly.js not loaded - CDN may be inaccessible');
+        }
+
+        // Initialize D3.js visualizations (if D3 is available)
+        if (typeof d3 !== 'undefined') {
+            window.D3SaaSCharts.createARRGradientArea('d3ArrGradient');
+            window.D3SaaSCharts.createNRRCustomGauge('d3NrrGauge');
+            window.D3SaaSCharts.createCACTrendLine('d3CacTrend');
+            window.D3SaaSCharts.createCustomerWaterfall('d3CustomerWaterfall');
+            window.D3SaaSCharts.createLTVBubbleChart('d3LtvBubble');
+            window.D3SaaSCharts.createExpansionSunburst('d3ExpansionSunburst');
+            window.D3SaaSCharts.createEfficiencySlope('d3EfficiencySlope');
+            window.D3SaaSCharts.createRuleOf40Score('d3RuleOf40');
+            console.log('✅ D3.js: 8 visualizations loaded');
+        } else {
+            console.warn('⚠️ D3.js not loaded - CDN may be inaccessible');
+        }
+
+        console.log('✅ Belissima SaaS Metrics Dashboard with WSJ Color Palettes loaded successfully!');
+
+        // Add refresh animation
+        setInterval(() => {
+            const refreshIndicator = document.querySelector('.refresh-indicator');
+            if (refreshIndicator) {
+                refreshIndicator.style.opacity = '0';
+                setTimeout(() => {
+                    refreshIndicator.style.opacity = '1';
+                }, 200);
+            }
+        }, 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSJ Color System - Belissima Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="color-system.css">
+</head>
+<body>
+    <div class="color-system-container">
+        <a href="index.html" class="back-link">
+            ← Back to Dashboard
+        </a>
+
+        <header class="color-system-header">
+            <h1>WSJ Color Palette System</h1>
+            <p>Professional color schemes designed specifically for SaaS metrics visualization. Each palette is carefully crafted for different use cases, ensuring clarity, accessibility, and visual hierarchy in your data presentations.</p>
+        </header>
+
+        <div class="palette-grid" id="paletteGrid">
+            <!-- Palettes will be dynamically inserted here -->
+        </div>
+
+        <section class="guidelines-section">
+            <h2>Implementation Guidelines</h2>
+            
+            <div class="guidelines-grid">
+                <div class="guideline-card do">
+                    <h3>✓ DO</h3>
+                    <ul>
+                        <li>Use Financial Authority palette for primary dashboard metrics (ARR, MRR)</li>
+                        <li>Apply Neutral Professional for retention and churn analysis</li>
+                        <li>Use Dual-Purpose for comparative visualizations (good vs bad)</li>
+                        <li>Apply Single-Hue Progression for sequential data trends</li>
+                        <li>Ensure 4.5:1 contrast ratio minimum for text</li>
+                        <li>Test colors on actual data before finalizing</li>
+                        <li>Use color consistently across related charts</li>
+                    </ul>
+                </div>
+                
+                <div class="guideline-card dont">
+                    <h3>✗ DON'T</h3>
+                    <ul>
+                        <li>Mix multiple palettes in a single chart</li>
+                        <li>Use more than 5 colors in a single visualization</li>
+                        <li>Rely solely on color to convey information</li>
+                        <li>Use burgundy or red for positive metrics</li>
+                        <li>Apply bright colors to background elements</li>
+                        <li>Ignore colorblind accessibility concerns</li>
+                        <li>Override palette colors without good reason</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accessibility-info">
+                <h3>♿ Accessibility Best Practices</h3>
+                <p>All WSJ color palettes meet WCAG 2.1 AA accessibility standards:</p>
+                <ul>
+                    <li><strong>Contrast Ratios:</strong> All text/background combinations maintain at least 4.5:1 ratio</li>
+                    <li><strong>Colorblind Safe:</strong> Palettes tested with deuteranopia, protanopia, and tritanopia simulations</li>
+                    <li><strong>Pattern + Color:</strong> Always combine color with patterns, shapes, or labels</li>
+                    <li><strong>Focus States:</strong> Ensure interactive elements have visible focus indicators</li>
+                    <li><strong>High Contrast Mode:</strong> All colors remain distinguishable in high contrast settings</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="lib/wsj-palettes.js"></script>
+    <script>
+        // Initialize color system page
+        document.addEventListener('DOMContentLoaded', function() {
+            const paletteGrid = document.getElementById('paletteGrid');
+            
+            // Render all palettes
+            WSJPalettes.all.forEach((palette, index) => {
+                const paletteCard = createPaletteCard(palette, index);
+                paletteGrid.appendChild(paletteCard);
+            });
+        });
+
+        function createPaletteCard(palette, index) {
+            const card = document.createElement('div');
+            card.className = 'palette-card';
+            
+            // Header
+            const header = document.createElement('div');
+            header.className = 'palette-header';
+            header.innerHTML = `
+                <h2>${palette.name}</h2>
+                <p class="palette-description">${palette.description}</p>
+                <p class="palette-use-case"><strong>Use Case:</strong> ${palette.useCase}</p>
+            `;
+            card.appendChild(header);
+            
+            // Color Swatches
+            const swatchesContainer = document.createElement('div');
+            swatchesContainer.className = 'color-swatches';
+            
+            palette.colors.forEach((color) => {
+                const swatch = createColorSwatch(color);
+                swatchesContainer.appendChild(swatch);
+            });
+            
+            card.appendChild(swatchesContainer);
+            
+            // Color Details Table
+            const table = createColorTable(palette.colors);
+            card.appendChild(table);
+            
+            return card;
+        }
+
+        function createColorSwatch(color) {
+            const swatch = document.createElement('div');
+            swatch.className = 'color-swatch';
+            swatch.onclick = () => copyToClipboard(color.hex, swatch);
+            
+            const preview = document.createElement('div');
+            preview.className = 'color-preview';
+            preview.style.backgroundColor = color.hex;
+            
+            // Add copy indicator
+            const indicator = document.createElement('div');
+            indicator.className = 'copy-indicator';
+            indicator.textContent = 'Copied!';
+            preview.appendChild(indicator);
+            
+            swatch.appendChild(preview);
+            
+            const info = document.createElement('div');
+            info.className = 'color-info';
+            info.innerHTML = `
+                <div class="color-name">${color.name}</div>
+                <div class="color-hex">${color.hex}</div>
+                <div class="color-role">${color.role}</div>
+            `;
+            swatch.appendChild(info);
+            
+            return swatch;
+        }
+
+        function createColorTable(colors) {
+            const table = document.createElement('table');
+            table.className = 'color-details-table';
+            
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Sample</th>
+                        <th>Name</th>
+                        <th>HEX</th>
+                        <th>RGB</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${colors.map(color => `
+                        <tr>
+                            <td>
+                                <div class="color-sample" style="background-color: ${color.hex};"></div>
+                            </td>
+                            <td><strong>${color.name}</strong></td>
+                            <td class="hex-value">${color.hex}</td>
+                            <td class="rgb-value">${color.rgb}</td>
+                            <td>${color.role}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            
+            return table;
+        }
+
+        function copyToClipboard(text, swatchElement) {
+            // Use modern Clipboard API with fallback
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyFeedback(swatchElement);
+                }).catch(err => {
+                    console.error('Failed to copy using Clipboard API:', err);
+                    fallbackCopy(text, swatchElement);
+                });
+            } else {
+                fallbackCopy(text, swatchElement);
+            }
+        }
+
+        function fallbackCopy(text, swatchElement) {
+            // Fallback for older browsers
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopyFeedback(swatchElement);
+                console.log(`Copied ${text} to clipboard`);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+            
+            document.body.removeChild(tempInput);
+        }
+
+        function showCopyFeedback(swatchElement) {
+            const indicator = swatchElement.querySelector('.copy-indicator');
+            indicator.classList.add('show');
+            
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 1500);
+        }
+
+        console.log('✅ WSJ Color System page loaded successfully!');
+    </script>
+</body>
+</html>
