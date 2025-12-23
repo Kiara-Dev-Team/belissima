@@ -1,6 +1,6 @@
 # 📊 Belissima - B2B SaaS CEO Dashboard
 
-![Belissima CEO Dashboard](./image)
+![Belissima Visualization Comparison - Chart.js, Plotly.js, and D3.js](./screenshots/comparison-grid.png)
 
 > **Executive-grade business intelligence for B2B SaaS leaders**  
 > Real-time insights into the 10 metrics that matter most to SaaS growth and profitability
