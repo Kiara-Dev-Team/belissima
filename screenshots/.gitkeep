@@ -1,0 +1,4 @@
+# Screenshots Directory
+
+This directory contains screenshots of all dashboard components organized by metric.
+Each subdirectory contains screenshots from Chart.js, Plotly.js, and D3.js implementations.
