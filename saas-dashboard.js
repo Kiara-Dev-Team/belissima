@@ -33,8 +33,8 @@ const commonChartOptions = {
     }
 };
 
-// Function to create all Chart.js visualizations
-function createChartJsVisualizations() {
+// Function to create all Chart.js visualizations (wrapped to avoid global pollution)
+(function createChartJsVisualizations() {
     // Cache canvas contexts to avoid repeated DOM queries
     const canvasContexts = {
         arrTrend: document.getElementById('arrTrendChart')?.getContext('2d'),
@@ -49,8 +49,8 @@ function createChartJsVisualizations() {
         grrTrend: document.getElementById('grrTrendChart')?.getContext('2d')
     };
 
-// 1. ARR Trend (Line Chart)
-if (canvasContexts.arrTrend) {
+    // 1. ARR Trend (Line Chart)
+    if (canvasContexts.arrTrend) {
 new Chart(canvasContexts.arrTrend, {
     type: 'line',
     data: {
@@ -416,10 +416,7 @@ new Chart(canvasContexts.grrTrend, {
     }
 });
 }
-}
-
-// Initialize Chart.js visualizations
-createChartJsVisualizations();
+})(); // IIFE - automatically executes
 
 // ============================================================================
 // PLOTLY.JS VISUALIZATIONS (6 Metrics)

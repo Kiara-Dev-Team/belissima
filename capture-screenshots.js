@@ -2,6 +2,14 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
+// Helper function to process screenshots in batches (prevents memory issues)
+async function captureBatch(page, charts, captureFn, batchSize = 5) {
+  for (let i = 0; i < charts.length; i += batchSize) {
+    const batch = charts.slice(i, i + batchSize);
+    await Promise.all(batch.map(chart => captureFn(page, chart)));
+  }
+}
+
 (async () => {
   const browser = await puppeteer.launch({
     headless: true,
@@ -17,8 +25,11 @@ const path = require('path');
     timeout: 30000
   });
   
-  // Wait for charts to render (reduced from 3000ms)
-  await page.waitForTimeout(2000);
+  // Wait for charts to render - use selector to ensure D3 SVG is ready
+  await page.waitForSelector('#d3ArrArea', { timeout: 5000 }).catch(() => {
+    console.log('⚠️  Warning: D3 charts may not be ready');
+  });
+  await page.waitForTimeout(1500); // Additional buffer for chart animations
   
   console.log('Capturing Chart.js screenshots...');
   
@@ -37,7 +48,7 @@ const path = require('path');
   ];
   
   // Capture screenshots in parallel for better performance
-  const captureScreenshot = async (chart) => {
+  const captureScreenshot = async (page, chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -52,16 +63,8 @@ const path = require('path');
     }
   };
   
-  // Helper function to process screenshots in batches (prevents memory issues)
-  async function captureBatch(charts, captureFn, batchSize = 5) {
-    for (let i = 0; i < charts.length; i += batchSize) {
-      const batch = charts.slice(i, i + batchSize);
-      await Promise.all(batch.map(chart => captureFn(chart)));
-    }
-  }
-  
   // Capture Chart.js screenshots in batches of 5
-  await captureBatch(chartjsSelectors, captureScreenshot, 5);
+  await captureBatch(page, chartjsSelectors, captureScreenshot, 5);
   
   console.log('Capturing Plotly.js screenshots...');
   
@@ -76,7 +79,7 @@ const path = require('path');
   ];
   
   // Capture Plotly screenshots in parallel
-  const capturePlotlyScreenshot = async (chart) => {
+  const capturePlotlyScreenshot = async (page, chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -92,7 +95,7 @@ const path = require('path');
   };
   
   // Capture Plotly screenshots in batches of 3 (3D charts use more memory)
-  await captureBatch(plotlySelectors, capturePlotlyScreenshot, 3);
+  await captureBatch(page, plotlySelectors, capturePlotlyScreenshot, 3);
   
   console.log('Capturing D3.js screenshots...');
   
@@ -109,7 +112,7 @@ const path = require('path');
   ];
   
   // Capture D3 screenshots in parallel
-  const captureD3Screenshot = async (chart) => {
+  const captureD3Screenshot = async (page, chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -125,7 +128,7 @@ const path = require('path');
   };
   
   // Capture D3 screenshots in batches of 4
-  await captureBatch(d3Selectors, captureD3Screenshot, 4);
+  await captureBatch(page, d3Selectors, captureD3Screenshot, 4);
   
   console.log('All screenshots captured successfully!');
   await browser.close();
