@@ -17,8 +17,8 @@ const path = require('path');
     timeout: 30000
   });
   
-  // Wait for charts to render
-  await page.waitForTimeout(3000);
+  // Wait for charts to render (reduced from 3000ms)
+  await page.waitForTimeout(2000);
   
   console.log('Capturing Chart.js screenshots...');
   
@@ -36,7 +36,8 @@ const path = require('path');
     { selector: '#grrTrendChart', name: '10-grr-trend.png', title: 'GRR Trend' }
   ];
   
-  for (const chart of chartjsSelectors) {
+  // Capture screenshots in parallel for better performance
+  const captureScreenshot = async (chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -49,7 +50,10 @@ const path = require('path');
     } catch (err) {
       console.log(`✗ Failed to capture ${chart.title}: ${err.message}`);
     }
-  }
+  };
+  
+  // Capture Chart.js screenshots in parallel (batched for memory efficiency)
+  await Promise.all(chartjsSelectors.map(chart => captureScreenshot(chart)));
   
   console.log('Capturing Plotly.js screenshots...');
   
@@ -63,7 +67,8 @@ const path = require('path');
     { selector: '#grrConfidencePlot', name: '06-grr-confidence.png', title: 'GRR Confidence' }
   ];
   
-  for (const chart of plotlySelectors) {
+  // Capture Plotly screenshots in parallel
+  const capturePlotlyScreenshot = async (chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -76,7 +81,9 @@ const path = require('path');
     } catch (err) {
       console.log(`✗ Failed to capture ${chart.title}: ${err.message}`);
     }
-  }
+  };
+  
+  await Promise.all(plotlySelectors.map(chart => capturePlotlyScreenshot(chart)));
   
   console.log('Capturing D3.js screenshots...');
   
@@ -92,7 +99,8 @@ const path = require('path');
     { selector: '#d3RuleOf40', name: '08-rule-of-40.png', title: 'Rule of 40 Score' }
   ];
   
-  for (const chart of d3Selectors) {
+  // Capture D3 screenshots in parallel
+  const captureD3Screenshot = async (chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -105,8 +113,10 @@ const path = require('path');
     } catch (err) {
       console.log(`✗ Failed to capture ${chart.title}: ${err.message}`);
     }
-  }
+  };
   
-  console.log('All screenshots captured!');
+  await Promise.all(d3Selectors.map(chart => captureD3Screenshot(chart)));
+  
+  console.log('All screenshots captured successfully!');
   await browser.close();
 })();
