@@ -2,6 +2,14 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
+// Helper function to process screenshots in batches (prevents memory issues)
+async function captureBatch(page, charts, captureFn, batchSize = 5) {
+  for (let i = 0; i < charts.length; i += batchSize) {
+    const batch = charts.slice(i, i + batchSize);
+    await Promise.all(batch.map(chart => captureFn(page, chart)));
+  }
+}
+
 (async () => {
   const browser = await puppeteer.launch({
     headless: true,
@@ -17,8 +25,11 @@ const path = require('path');
     timeout: 30000
   });
   
-  // Wait for charts to render
-  await page.waitForTimeout(3000);
+  // Wait for charts to render - use selector to ensure D3 SVG is ready
+  await page.waitForSelector('#d3ArrArea', { timeout: 5000 }).catch(() => {
+    console.log('⚠️  Warning: D3 charts may not be ready');
+  });
+  await page.waitForTimeout(1500); // Additional buffer for chart animations
   
   console.log('Capturing Chart.js screenshots...');
   
@@ -36,7 +47,8 @@ const path = require('path');
     { selector: '#grrTrendChart', name: '10-grr-trend.png', title: 'GRR Trend' }
   ];
   
-  for (const chart of chartjsSelectors) {
+  // Capture screenshots in parallel for better performance
+  const captureScreenshot = async (page, chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -49,7 +61,10 @@ const path = require('path');
     } catch (err) {
       console.log(`✗ Failed to capture ${chart.title}: ${err.message}`);
     }
-  }
+  };
+  
+  // Capture Chart.js screenshots in batches of 5
+  await captureBatch(page, chartjsSelectors, captureScreenshot, 5);
   
   console.log('Capturing Plotly.js screenshots...');
   
@@ -63,7 +78,8 @@ const path = require('path');
     { selector: '#grrConfidencePlot', name: '06-grr-confidence.png', title: 'GRR Confidence' }
   ];
   
-  for (const chart of plotlySelectors) {
+  // Capture Plotly screenshots in parallel
+  const capturePlotlyScreenshot = async (page, chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -76,7 +92,10 @@ const path = require('path');
     } catch (err) {
       console.log(`✗ Failed to capture ${chart.title}: ${err.message}`);
     }
-  }
+  };
+  
+  // Capture Plotly screenshots in batches of 3 (3D charts use more memory)
+  await captureBatch(page, plotlySelectors, capturePlotlyScreenshot, 3);
   
   console.log('Capturing D3.js screenshots...');
   
@@ -92,7 +111,8 @@ const path = require('path');
     { selector: '#d3RuleOf40', name: '08-rule-of-40.png', title: 'Rule of 40 Score' }
   ];
   
-  for (const chart of d3Selectors) {
+  // Capture D3 screenshots in parallel
+  const captureD3Screenshot = async (page, chart) => {
     try {
       const element = await page.$(chart.selector);
       if (element) {
@@ -105,8 +125,11 @@ const path = require('path');
     } catch (err) {
       console.log(`✗ Failed to capture ${chart.title}: ${err.message}`);
     }
-  }
+  };
   
-  console.log('All screenshots captured!');
+  // Capture D3 screenshots in batches of 4
+  await captureBatch(page, d3Selectors, captureD3Screenshot, 4);
+  
+  console.log('All screenshots captured successfully!');
   await browser.close();
 })();
