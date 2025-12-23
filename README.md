@@ -19,6 +19,7 @@
 - [Color System](#color-system)
 - [Component Gallery](#component-gallery)
 - [Quick Start Guide](#quick-start-guide)
+- [Deployment](#deployment)
 - [Integration Guide](#integration-guide)
 - [Customization](#customization)
 - [Technical Documentation](#technical-documentation)
@@ -740,6 +741,45 @@ const arrData = {
 ```
 
 See [Integration Guide](#integration-guide) for real-time data connections.
+
+---
+
+## Deployment
+
+### Deploy to Netlify
+
+Belissima is ready to deploy to Netlify with one click!
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Kiara-Dev-Team/belissima)
+
+#### Why Netlify?
+
+- ✅ **Free Tier**: Perfect for dashboards (100 GB bandwidth/month)
+- ✅ **Automatic HTTPS**: Secure by default
+- ✅ **Continuous Deployment**: Auto-deploy on every push
+- ✅ **Global CDN**: Fast worldwide performance
+- ✅ **Deploy Previews**: Test changes before going live
+
+#### Quick Deploy Steps
+
+1. **One-Click Deploy**: Click the "Deploy to Netlify" button above
+2. **Connect GitHub**: Authorize Netlify to access your repository
+3. **Configure**: Netlify auto-detects settings from `netlify.toml`
+4. **Deploy**: Your dashboard goes live in ~30 seconds
+5. **Custom Domain**: Optionally add your own domain (e.g., `dashboard.yourcompany.com`)
+
+#### Configuration Files Included
+
+- **`netlify.toml`**: Build settings, security headers, caching rules
+- **`_redirects`**: URL routing and 404 handling
+
+#### Deployment Methods
+
+- **UI Deploy**: Use Netlify dashboard (easiest for first-time users)
+- **CLI Deploy**: Use `netlify-cli` for command-line deployment
+- **Git Integration**: Auto-deploy on every push to your repository
+
+📖 **Full deployment guide**: See [NETLIFY-DEPLOYMENT.md](NETLIFY-DEPLOYMENT.md) for detailed instructions, troubleshooting, and advanced configuration.
 
 ---
 

@@ -1,0 +1,4 @@
+# Redirects for Belissima Dashboard
+
+# Serve index.html for all routes (SPA-style routing)
+/*    /index.html    200
