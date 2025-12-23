@@ -4,35 +4,33 @@
     box-sizing: border-box;
 }
 
-/* WSJ Color System Variables */
 :root {
     /* Financial Authority Palette */
-    --wsj-fa-navy-dark: #1B2D4D;
-    --wsj-fa-slate-gray: #4A5568;
-    --wsj-fa-teal-accent: #2D7B8C;
-    --wsj-fa-burgundy: #8B3A3A;
-    --wsj-fa-cream-bg: #F5F4F0;
-    
+    --color-navy-dark: #1B2D4D;
+    --color-slate-gray: #4A5568;
+    --color-teal-accent: #2D7B8C;
+    --color-burgundy-warning: #8B3A3A;
+    --color-cream-bg: #F5F4F0;
+
     /* Neutral Professional Palette */
-    --wsj-np-charcoal: #2C2C2C;
-    --wsj-np-medium-gray: #6B7280;
-    --wsj-np-light-gray: #D1D5DB;
-    --wsj-np-forest-accent: #1F5233;
-    --wsj-np-off-white: #F9F7F4;
-    
+    --color-charcoal: #2C2C2C;
+    --color-medium-gray: #6B7280;
+    --color-light-gray: #D1D5DB;
+    --color-forest-accent: #1F5233;
+    --color-off-white: #F9F7F4;
+
     /* Dual-Purpose Palette */
-    --wsj-dp-deep-teal: #0D5C63;
-    --wsj-dp-deep-plum: #6A3E37;
-    --wsj-dp-light-sage: #E8F1F0;
-    --wsj-dp-light-mauve: #F4EBE8;
-    --wsj-dp-white: #FFFFFF;
-    
+    --color-deep-teal: #0D5C63;
+    --color-deep-plum: #6A3E37;
+    --color-light-sage: #E8F1F0;
+    --color-light-mauve: #F4EBE8;
+
     /* Single-Hue Progression Palette */
-    --wsj-sh-dark-blue-100: #003A66;
-    --wsj-sh-blue-80: #1A5C8C;
-    --wsj-sh-blue-60: #4A7CB4;
-    --wsj-sh-blue-40: #8AA8D1;
-    --wsj-sh-blue-20: #D4E1F0;
+    --color-blue-100: #003A66;
+    --color-blue-80: #1A5C8C;
+    --color-blue-60: #4A7CB4;
+    --color-blue-40: #8AA8D1;
+    --color-blue-20: #D4E1F0;
 }
 
 body {
